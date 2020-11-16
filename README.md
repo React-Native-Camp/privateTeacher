@@ -1,6 +1,17 @@
 # privateTeacher
 
 
+
+# The Journey
+
+* ###   Anonymous Journey 
+![](https://i.imgur.com/t6zTbd0.png)
+
+* ###  Student Journey
+![](https://i.imgur.com/BGpLjGk.png)
+
+
+
 # User Stories: 
 ### AS Anonymous
 
@@ -21,3 +32,13 @@
 * As a user I can receive a notification when any student send education request
 * As a user I can browse/confirm/reject the education requests
 * As a user I should have a profile page contains my name, address, photo, address, courses, classrooms, and price. 
+
+
+
+
+
+ ## Team Members: 
+ - [Nadeen](https://github.com/Nadeen123)
+ - [Sahar](https://github.com/saharAdem)
+ - [Ruba](https://github.com/rubasider)
+ - [Yakoob](https://github.com/YakoobHammouri)

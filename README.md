@@ -2,7 +2,7 @@
 
 
 ## About PrivateTeacher
- Private Teacher is an application where you can find the right teacher for you.
+ PrivateTeacher is an application where you can find the right teacher for you.
 
 
 ### Figma Prototype: https://www.figma.com/file/UiTeMtII65yVFjyhx25uxO/private-teacher?node-id=0%3A1

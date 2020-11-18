@@ -34,10 +34,10 @@
 
 ---
 ### As Teacher
-* As a user I can Sign Up by google or facebook or ios account
+* As a user I can Login by google or facebook account
 * As a user I can add/update/delete my courses
 * As a user I can receive a notification when any student send education request
-* As a user I can browse/confirm/reject the education requests
+* As a user I can browse the education requests
 * As a user I should have a profile page contains my name, address, photo, address, courses, classrooms, and price. 
 
 

@@ -23,13 +23,15 @@
 * As a user I can see a home page containing Logo , signup button ,  information about App and some teachers and courses 
 ---
 ### As Student 
-* As a user I can Sign Up by google or facebook or ios account
+* As a user I can Login by google or facebook account
 * As a user I can search by course
 * As a user I can Search by location
 * As a user I can browse a teacher profile
 * As a user I can browse the teacher’s courses 
 * As a user I can send education requests to any course
 * As a user I can chat with a teacher
+* As a user I can browse all my courses 
+
 ---
 ### As Teacher
 * As a user I can Sign Up by google or facebook or ios account

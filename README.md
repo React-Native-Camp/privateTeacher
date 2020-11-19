@@ -10,12 +10,14 @@
 # The Journey
 
 * ###   Anonymous Journey 
-![](https://i.imgur.com/t6zTbd0.png)
+![Anonymous Journey](https://user-images.githubusercontent.com/7718220/99657293-a77dc380-2a66-11eb-8ac0-967d51bd794b.png)
+
 
 * ###  Student Journey
-![](https://i.imgur.com/BGpLjGk.png)
+![Student Journey](https://user-images.githubusercontent.com/7718220/99657326-b3698580-2a66-11eb-8b75-274e65f82a58.png)
 
-
+* ###  Teacher Journey
+![Teacher Journey](https://user-images.githubusercontent.com/7718220/99657433-d3994480-2a66-11eb-8e38-c0ebebec9a64.png)
 
 # User Stories: 
 ### AS Anonymous

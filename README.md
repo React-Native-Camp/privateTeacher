@@ -7,17 +7,6 @@
 
 ### [Figma Prototype](https://www.figma.com/file/UiTeMtII65yVFjyhx25uxO/private-teacher?node-id=0%3A1)
 
-# The Journey
-
-* ###   Anonymous Journey 
-![Anonymous Journey](https://user-images.githubusercontent.com/7718220/99657293-a77dc380-2a66-11eb-8ac0-967d51bd794b.png)
-
-
-* ###  Student Journey
-![Student Journey](https://user-images.githubusercontent.com/7718220/99657326-b3698580-2a66-11eb-8b75-274e65f82a58.png)
-
-* ###  Teacher Journey
-![Teacher Journey](https://user-images.githubusercontent.com/7718220/99657433-d3994480-2a66-11eb-8e38-c0ebebec9a64.png)
 
 # User Stories: 
 ### AS Anonymous
@@ -42,7 +31,17 @@
 * As a user I can browse the education requests
 * As a user I should have a profile page contains my name, address, photo, address, courses, classrooms, and price. 
 
+# The Journey
 
+* ###   Anonymous Journey 
+![Anonymous Journey](https://user-images.githubusercontent.com/7718220/99657293-a77dc380-2a66-11eb-8ac0-967d51bd794b.png)
+
+
+* ###  Student Journey
+![Student Journey](https://user-images.githubusercontent.com/7718220/99657326-b3698580-2a66-11eb-8b75-274e65f82a58.png)
+
+* ###  Teacher Journey
+![Teacher Journey](https://user-images.githubusercontent.com/7718220/99657433-d3994480-2a66-11eb-8e38-c0ebebec9a64.png)
 
 
 

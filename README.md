@@ -9,7 +9,7 @@
 # User Stories: 
 ### AS Anonymous
 
-* As a user I can see a home page containing Logo , signup button ,  information about App and some teachers and courses 
+* As a user I can see a home page containing Logo , login button ,  information about App and some teachers and courses 
 ---
 ### As Student 
 * As a user I can Login by google or facebook account

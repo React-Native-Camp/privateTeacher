@@ -4,15 +4,14 @@ import ChooseType from './components/ChooseType';
 
 const App = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.main}>
       <ChooseType />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  main: {
     backgroundColor: '#fff',
   },
 });

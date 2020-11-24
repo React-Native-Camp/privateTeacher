@@ -8,49 +8,36 @@ var Types = [
   {label: 'continue as a teacher', value: 1},
 ];
 
-// function ChooseType({navigation}) {
-class ChooseType extends React.Component {
-  static navigationOptions = {
-    title: 'Search',
-  };
-
-  render() {
-    // const {navigate} = this.props.navigation;
-    return (
-      <View style={styles.main}>
-        <View>
-          <Image style={styles.image} source={require('../assest/logoo.png')} />
-        </View>
-        <View style={styles.container}>
-          <RadioForm
-            radio_props={Types}
-            initial={-1}
-            onPress={value => {
-              ToastAndroid.show(value.toString(), ToastAndroid.SHORT);
-            }}
-            buttonSize={30}
-            buttonOuterSize={40}
-            selectedButtonColor={'#F0AB2A'}
-            selectedLabelColor={'#F0AB2A'}
-            labelStyle={{fontSize: 22}}
-            buttonColor={'#28AE81'}
-          />
-        </View>
-
-        <View style={styles.Button}>
-          <Button
-            title="Confirm"
-            color="#28AE81"
-            // onPress={() => navigate('Search')}
-          />
-        </View>
+function ChooseType() {
+  return (
+    <View style={styles.main}>
+      <View>
+        <Image style={styles.image} source={require('../assest/logoo.png')} />
       </View>
-    );
-  }
+      <View style={styles.container}>
+        <RadioForm
+          radio_props={Types}
+          initial={-1}
+          onPress={value => {
+            ToastAndroid.show(value.toString(), ToastAndroid.SHORT);
+          }}
+          buttonSize={30}
+          buttonOuterSize={40}
+          selectedButtonColor={'#F0AB2A'}
+          selectedLabelColor={'#F0AB2A'}
+          labelStyle={{fontSize: 22}}
+          buttonColor={'#28AE81'}
+        />
+      </View>
+
+      <View style={styles.Button}>
+        <Button title="Confirm" color="#28AE81" />
+      </View>
+    </View>
+  );
 }
 const styles = StyleSheet.create({
   main: {
-    flex: 1,
     backgroundColor: '#fff',
   },
   container: {

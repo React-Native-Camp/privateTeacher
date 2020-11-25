@@ -11,19 +11,19 @@ const styles = StyleSheet.create({
   },
 });
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchDemo());
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchDemo());
+  // }, []);
 
   const users = useSelector((state) => state.demo.users);
   return (
     <View style={styles.container}>
       <LoginScreen />
-      <Text>Private Teacher</Text>
+      {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;
-      })}
+      })} */}
     </View>
   );
 };

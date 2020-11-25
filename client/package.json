@@ -8,14 +8,14 @@
     "start": "react-native start --port 3001",
     "test": "jest",
     "lint": "eslint .",
-    "reset" :"react-native start --port 3001 -- --reset-cache"
+    "reset": "react-native start --port 3001 -- --reset-cache"
   },
   "dependencies": {
-    "react-native-simple-radio-button": "^2.7.4",
     "axios": "^0.21.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-elements": "^3.0.0-alpha.1",
+    "react-native-simple-radio-button": "^2.7.4",
     "react-native-vector-icons": "^7.1.0",
     "react-navigation": "^4.4.3",
     "react-navigation-stack": "^2.10.1",

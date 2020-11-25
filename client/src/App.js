@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import Home from './components/Home';
-import TeacherCourses from './components/TeacherCourses';
-import PersonCard from './com/personCard';
+import TeacherCourses from './components/screens/AuthScreen/TeacherCourses'
 import {Text, View, StyleSheet} from 'react-native';
 import LoginScreen from './components/screens/MainScreen/LoginScreen';
 import ChooseType from './components/screens/MainScreen/ChooseType';
@@ -26,8 +25,8 @@ const App = () => {
     <View style={styles.container}>
       <TeacherCourses />
       {/* <PersonCard /> */}
-      <ChooseType />
-      <LoginScreen />
+      {/* <ChooseType />
+      <LoginScreen /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;

@@ -1,10 +1,8 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {Button} from 'react-native-elements';
-
 import ChatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UserIcon from 'react-native-vector-icons/FontAwesome';
-import RatingStar from '../../com/RatingStar';
+import RatingStar from '../RatingStar';
 
 const styles = StyleSheet.create({
   mainContainer: {},

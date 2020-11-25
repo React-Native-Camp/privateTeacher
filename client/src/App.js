@@ -1,4 +1,6 @@
 import React, {useEffect} from 'react';
+import Home from './components/Home';
+import TeacherCourses from './components/screens/AuthScreen/TeacherCourses'
 import {Text, View, StyleSheet} from 'react-native';
 import LoginScreen from './components/screens/MainScreen/LoginScreen';
 import ChooseType from './components/screens/MainScreen/ChooseType';
@@ -21,8 +23,10 @@ const App = () => {
   const users = useSelector((state) => state.demo.users);
   return (
     <View style={styles.container}>
-      <ChooseType />
-      <LoginScreen />
+      <TeacherCourses />
+      {/* <PersonCard /> */}
+      {/* <ChooseType />
+      <LoginScreen /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;

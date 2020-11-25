@@ -11,14 +11,17 @@ var Types = [
 function ChooseType() {
   return (
     <View style={styles.main}>
-      <View>
-        <Image style={styles.image} source={require('../assest/logoo.png')} />
-      </View>
+      {/* <View> */}
+      <Image
+        style={styles.image}
+        source={require('../../../assets/logo.png')}
+      />
+      {/* </View> */}
       <View style={styles.container}>
         <RadioForm
           radio_props={Types}
           initial={-1}
-          onPress={value => {
+          onPress={(value) => {
             ToastAndroid.show(value.toString(), ToastAndroid.SHORT);
           }}
           buttonSize={30}
@@ -39,6 +42,11 @@ function ChooseType() {
 const styles = StyleSheet.create({
   main: {
     backgroundColor: '#fff',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingTop: 80,
+    flexDirection: 'column',
+    height: '100%',
   },
   container: {
     backgroundColor: '#fff',
@@ -47,11 +55,11 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   image: {
-    width: 300,
-    height: 350,
-    alignItems: 'center',
-    marginLeft: 50,
-    marginTop: 20,
+    // width: 300,
+    // height: 350,
+    // alignItems: 'center',
+    // marginLeft: 50,
+    // marginTop: 20,
   },
 
   Button: {

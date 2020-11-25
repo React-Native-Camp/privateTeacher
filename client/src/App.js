@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import ChooseType from './components/ChooseType';
 import {Text, View, StyleSheet} from 'react-native';
 import LoginScreen from './components/screens/MainScreen/LoginScreen';
+import ChooseType from './components/screens/MainScreen/ChooseType';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDemo} from './actions/demoAction';
 

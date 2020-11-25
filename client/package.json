@@ -3,15 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "react-native run-android --port 3001",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --port 3001",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-elements": "^3.0.0-alpha.1",
+    "react-native-simple-radio-button": "^2.7.4",
     "react-navigation": "^4.4.3",
     "react-navigation-stack": "^2.10.1"
   },

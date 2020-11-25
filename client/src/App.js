@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, SafeAreaView, StyleSheet} from 'react-native';
 import LoginScreen from './components/screens/MainScreen/LoginScreen';
 import ChooseType from './components/screens/MainScreen/ChooseType';
 import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
 import HomeScreen from './components/screens/MainScreen/HomeScreen';
+import ConfirmScrren from '../src/components/screens/AuthScreen/ConfirmScreen';
+
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDemo} from './actions/demoAction';
-import ConfirmScrren from '../src/components/confirmScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +24,7 @@ const App = () => {
 
   const users = useSelector((state) => state.demo.users);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* <TeacherCourses /> */}
       {/* <PersonCard /> */}
       {/* <ChooseType />*/}
@@ -34,7 +35,7 @@ const App = () => {
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;
       })} */}
-    </View>
+    </SafeAreaView>
   );
 };
 

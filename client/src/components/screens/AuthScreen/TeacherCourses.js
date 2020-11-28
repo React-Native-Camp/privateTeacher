@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import PersonCard from '../../PersonCard';
+import {useNavigation} from '@react-navigation/native';
 
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {
@@ -10,6 +11,7 @@ let courseInfo = {
   thirdCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
 };
 const buildCourse = () => {
+  const navigation = useNavigation();
   return Object.keys(courseInfo).map((key, index) => {
     return (
       <View key={index} style={styles.container}>
@@ -28,7 +30,8 @@ const buildCourse = () => {
         </View>
 
         <View style={styles.book}>
-          <TouchableOpacity onPress={() => alert('You tapped the button!')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ConfirmScrren')}>
             <Text h6 style={{color: 'green'}}>
               Book
             </Text>

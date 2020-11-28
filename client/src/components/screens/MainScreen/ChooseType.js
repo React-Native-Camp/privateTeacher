@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Image, Button, ToastAndroid} from 'react-native';
 
 import RadioForm from 'react-native-simple-radio-button';
+import {useNavigation} from '@react-navigation/native';
 
 var Types = [
   {label: 'continue as a sttudent', value: 0},
@@ -9,6 +10,7 @@ var Types = [
 ];
 
 function ChooseType() {
+  const navigation = useNavigation();
   return (
     <View style={styles.main}>
       {/* <View> */}
@@ -34,7 +36,11 @@ function ChooseType() {
       </View>
 
       <View style={styles.Button}>
-        <Button title="Confirm" color="#28AE81" />
+        <Button
+          title="Confirm"
+          color="#28AE81"
+          onPress={() => navigation.navigate('TeacherCourses')}
+        />
       </View>
     </View>
   );

@@ -21,15 +21,15 @@ const ConfirmScreen = () => {
           <RadioForm
             radio_props={times}
             initial={-1}
-            onPress={(value) => {
-              alert(value);
-            }}
             buttonSize={30}
             buttonOuterSize={40}
             selectedButtonColor={'#F0AB2A'}
             selectedLabelColor={'#F0AB2A'}
             labelStyle={{fontSize: 20, color: '#968E8E', marginTop: 8}}
             buttonColor={'#28AE81'}
+            onPress={() => {
+              alert('Done');
+            }}
           />
         </View>
 
@@ -39,6 +39,9 @@ const ConfirmScreen = () => {
             titleStyle={{fontSize: 24, color: '#fff'}}
             buttonColor="#28AE81"
             buttonStyle={{backgroundColor: '#28AE81'}}
+            onPress={() => {
+              alert('Done');
+            }}
           />
         </View>
       </View>

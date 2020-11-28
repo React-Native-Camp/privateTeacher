@@ -1,6 +1,8 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, Alert} from 'react-native';
+import {Text, View, StyleSheet, Image, Alert, ScrollView} from 'react-native';
 import SocialLogin from '../../Buttons/SocialLogin';
+import {useNavigation} from '@react-navigation/native';
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-start',
@@ -47,6 +49,7 @@ const createTwoButtonAlert = () =>
   );
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Image style={styles.Logo} source={require('../../../assets/logo.png')} />
@@ -56,14 +59,14 @@ const LoginScreen = () => {
       <View style={styles.loginContainer}>
         <SocialLogin
           iconName={'google'}
-          onPress={createTwoButtonAlert}
+          onPress={() => navigation.navigate('ChooseType')}
           title={'Login with Google'}
           borderColor={'#28AE81'}
           iconColor={'#34A853'}
         />
         <SocialLogin
           iconName={'facebook'}
-          onPress={createTwoButtonAlert}
+          onPress={() => navigation.navigate('ChooseType')}
           title={'Login with Facebook'}
           borderColor={'#395185'}
           iconColor={'#395185'}

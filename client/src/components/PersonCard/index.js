@@ -51,6 +51,9 @@ const PersonCard = ({
   displayChatIcon,
   displayCoures,
   displayRating,
+  enableEdit,
+  displaySave,
+  editHandle,
 }) => {
   const imageUrl = imageProfile ? (
     <Image
@@ -91,7 +94,20 @@ const PersonCard = ({
               ) : null}
 
               {displayEdit ? (
-                <EditIcon name="edit" size={40} color="#28AE81" />
+                <EditIcon
+                  name="edit"
+                  size={40}
+                  color="#28AE81"
+                  onPress={enableEdit}
+                />
+              ) : null}
+              {displaySave ? (
+                <EditIcon
+                  name="save"
+                  size={40}
+                  color="#28AE81"
+                  onPress={editHandle}
+                />
               ) : null}
             </View>
           </View>

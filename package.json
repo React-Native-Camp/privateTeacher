@@ -1,0 +1,29 @@
+{
+  "name": "privateteacher",
+  "version": "1.0.0",
+  "description": "### PrivateTeacher is an application where you can find the right teacher for you.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "dev": "nodemon ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/React-Native-Camp/privateTeacher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/React-Native-Camp/privateTeacher/issues"
+  },
+  "homepage": "https://github.com/React-Native-Camp/privateTeacher#readme",
+  "dependencies": {
+    "cookie": "^0.4.0",
+    "cookie-parser": "^1.4.4",
+    "fs": "0.0.1-security",
+    "nodemon": "^1.19.4",
+    "express": "^4.17.1",
+    "env2": "^2.2.2",
+    "pg": "^8.5.1"
+  }
+}

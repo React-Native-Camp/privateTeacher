@@ -86,7 +86,7 @@ import AppNavigation from './navigation/AppNavigation';
 import {NavigationContainer} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDemo} from './actions/demoAction';
-
+import navigationTheme from './navigation/navigationTheme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -113,7 +113,7 @@ const App = () => {
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;
       })} */}
-      <NavigationContainer>
+      <NavigationContainer theme={navigationTheme}>
         {/* <AuthNavigation /> */}
         <AppNavigation />
       </NavigationContainer>

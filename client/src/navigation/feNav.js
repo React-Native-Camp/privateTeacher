@@ -10,7 +10,7 @@ import HomeScreen from '../components/screens/MainScreen/HomeScreen';
 import ConfirmScrren from '../components/screens/AuthScreen/ConfirmScreen';
 const Stack = createStackNavigator();
 const feNav = () => (
-  <Stack.Navigator>
+  <Stack.Navigator mode="modal">
     <Stack.Screen
       name="TeacherCourses"
       component={TeacherCourses}

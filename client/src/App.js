@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text} from 'react-native';
+
+import Router from './components/index';
 
 const App = () => {
   return (
     <>
-      <Text>Private Teacher</Text>
+      <Router />
     </>
   );
 };

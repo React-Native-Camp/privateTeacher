@@ -3,7 +3,8 @@ import {StyleSheet, View, ScrollView} from 'react-native';
 import {Button} from 'react-native-elements';
 import PersonCard from '../../PersonCard';
 import RadioForm from 'react-native-simple-radio-button';
-
+import {useNavigation} from '@react-navigation/native';
+import {TouchableHighlight} from 'react-native-gesture-handler';
 var times = [
   {label: 'Nov , 20 4:00 PM 1 houre  20$', value: 0},
   {label: 'Nov , 22 2:00 PM 1:30 houre  30$', value: 2},
@@ -12,11 +13,13 @@ var times = [
 ];
 
 const ConfirmScreen = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView>
       <View style={styles.main}>
-        <PersonCard />
-
+        <TouchableHighlight>
+          <PersonCard onPress={() => navigation.navigate('TeacherCourses')} />
+        </TouchableHighlight>
         <View style={styles.container}>
           <RadioForm
             radio_props={times}

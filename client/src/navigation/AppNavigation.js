@@ -14,7 +14,13 @@ import LoginScreen from '../components/screens/MainScreen/LoginScreen';
 import ConfirmScrren from '../components/screens/AuthScreen/ConfirmScreen';
 const Tab = createBottomTabNavigator();
 const AppNavigation = () => (
-  <Tab.Navigator>
+  <Tab.Navigator
+    tabBarOptions={{
+      inactiveBackgroundColor: '#28AE81',
+      activeBackgroundColor: 'white',
+      activeTintColor: '#28AE81',
+      inactiveTintColor: 'white',
+    }}>
     <Tab.Screen
       name="HomeScreen"
       component={HomeScreen}
@@ -63,12 +69,9 @@ const AppNavigation = () => (
         tabBarIcon: ({color, size}) => (
           <SimpleLineIcons
             name="options-vertical"
-            color={color}
-            // color="rgb(255, 255, 255)"
-            // color="rgb(40, 174, 129)"
+            color="white"
             size={size}
             backgroundColor={color.primary}
-            // background="rgb(255, 255, 255)"
           />
         ),
         // backgroundColor=color.primary,

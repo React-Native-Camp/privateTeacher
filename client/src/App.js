@@ -5,7 +5,7 @@ import ChooseType from './components/screens/MainScreen/ChooseType';
 import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
 import HomeScreen from './components/screens/MainScreen/HomeScreen';
 import StudentProfile from '../src/components/screens/AuthScreen/StudentProfile';
-
+import StudentCourse from '../src/components/screens/AuthScreen/StudentCourse';
 import ConfirmScrren from '../src/components/screens/AuthScreen/ConfirmScreen';
 import AddCourse from './components/screens/MainScreen/AddCourse/AddCourse';
 import {useDispatch, useSelector} from 'react-redux';
@@ -35,6 +35,7 @@ const App = () => {
       {/* <HomeScreen /> */}
       {/* <StudentProfile /> */}
       {/* <ConfirmScreen /> */}
+      <StudentCourse />
       {/* <ConfirmScrren /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {

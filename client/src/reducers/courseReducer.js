@@ -121,15 +121,19 @@ const initialState = {
       },
     ],
   ],
+  studentBookds: [{teacherId: 1, courseId: 1, studentId: 1, timeId: 1}],
 };
 
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
     case Course_GET_Time_COURSE_By_Id:
-      return {...state, coursesTime: action.payload};
+      return {...state, coursesTime: [...state.coursesTime, action.payload]};
 
     case Course_GET_TEACHER_COURSE_By_Id:
-      return {...state, teacherCourses: action.payload};
+      return {
+        ...state,
+        teacherCourses: [...state.teacherCourses, action.payload],
+      };
 
     case Course_PUSH_TEACHER_COURSE_By_Id:
       console.log('course payload : ', action.payload);
@@ -139,7 +143,10 @@ const courseReducer = (state = initialState, action) => {
         teacherCourses: [...state.teacherCourses, action.payload],
       };
     case Course_BOOK:
-      return {...state, studentBookds: action.payload};
+      return {
+        ...state,
+        studentBookds: [...state.studentBookds, action.payload],
+      };
 
     case FETCH_ERROR:
       return {...state, error: action.payload};

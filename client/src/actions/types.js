@@ -12,5 +12,7 @@ export const USER_SET_TYPE_ERROR = 'USER_SET_TYPE_ERROR';
 // Courses
 export const Course_GET_TEACHER_COURSE_By_Id =
   'Course_GET_TEACHER_COURSE_By_Id';
+export const Course_PUSH_TEACHER_COURSE_By_Id =
+  'Course_PUSH_TEACHER_COURSE_By_Id';
 
 export const Course_GET_Time_COURSE_By_Id = 'Course_GET_Time_COURSE_By_Id';

@@ -8,8 +8,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-
+import {Formik} from 'formik';
+import {useDispatch} from 'react-redux';
+import {PushTeacherCourseById} from '../../../actions/courseAction';
 function Addcourse() {
+  const dispatch = useDispatch();
   return (
     <View style={styles.main}>
       <TouchableOpacity style={styles.teacher}>
@@ -20,31 +23,51 @@ function Addcourse() {
         />
         <Text style={styles.text}>Stella Russell</Text>
       </TouchableOpacity>
-      <View style={styles.container}>
-        <View style={styles.inputs}>
-          <TextInput style={styles.inputText} placeholder="course name.." />
-        </View>
-        <View style={styles.inputs}>
-          <TextInput style={styles.inputText} placeholder="Descreption.." />
-        </View>
-        <View style={styles.inputs}>
-          <TextInput style={styles.inputText} placeholder="Price.." />
-        </View>
-        <View style={styles.inputs}>
+      <Formik
+        initialValues={{id: 10, teacherId: 9, name: '', durtion: '', price: ''}}
+        onSubmit={(values) => dispatch(PushTeacherCourseById(values))}>
+        {({handleChange, handleSubmit, values}) => (
+          <>
+            <View style={styles.container}>
+              <View style={styles.inputs}>
+                <TextInput
+                  style={styles.inputText}
+                  placeholder="course name.."
+                  onChangeText={handleChange('name')}
+                />
+              </View>
+              <View style={styles.inputs}>
+                <TextInput
+                  style={styles.inputText}
+                  placeholder="Duration.."
+                  onChangeText={handleChange('durtion')}
+                />
+              </View>
+              <View style={styles.inputs}>
+                <TextInput
+                  style={styles.inputText}
+                  placeholder="Price.."
+                  onChangeText={handleChange('price')}
+                />
+              </View>
+              {/* <View style={styles.inputs}>
           <TextInput style={styles.inputText} placeholder="level.." />
         </View>
         <View style={styles.inputs}>
           <TextInput style={styles.inputText} placeholder="schedule.." />
-        </View>
-      </View>
-      <View style={styles.allButton}>
-        <View style={styles.Button}>
-          <Button title="submit" color="#28AE81" onPress={() => {}} />
-        </View>
-        <View style={styles.Button}>
-          <Button title="cancle" color="#BD0022" onPress={() => {}} />
-        </View>
-      </View>
+        </View> */}
+            </View>
+            <View style={styles.allButton}>
+              <View style={styles.Button}>
+                <Button title="submit" color="#28AE81" onPress={handleSubmit} />
+              </View>
+              {/* <View style={styles.Button}>
+                <Button title="cancle" color="#BD0022" onPress={} />
+              </View> */}
+            </View>
+          </>
+        )}
+      </Formik>
     </View>
   );
 }

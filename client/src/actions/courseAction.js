@@ -2,6 +2,7 @@ import {
   Course_GET_TEACHER_COURSE_By_Id,
   Course_GET_Time_COURSE_By_Id,
   FETCH_ERROR,
+  Course_PUSH_TEACHER_COURSE_By_Id,
 } from './types';
 
 export const GetTeacherCourseById = (teacherId) => (dispatch) => {
@@ -14,6 +15,25 @@ export const GetTeacherCourseById = (teacherId) => (dispatch) => {
   }
 };
 
+export const PushTeacherCourseById = ({
+  id,
+  teacherId,
+  name,
+  durtion,
+  price,
+}) => (dispatch) => {
+  try {
+    // {id, teacherId, name, durtion, price}
+    // const newCourse = {id, teacherId, name, durtion, price};
+    console.log('couse data res', {id, teacherId, name, durtion, price});
+    dispatch({
+      type: Course_PUSH_TEACHER_COURSE_By_Id,
+      payload: {id, teacherId, name, durtion, price},
+    });
+  } catch (err) {
+    dispatch({type: FETCH_ERROR, payload: err});
+  }
+};
 export const GetCourseTime = (teacherId, courseId) => (dispatch) => {
   try {
     // get teacher coures by id

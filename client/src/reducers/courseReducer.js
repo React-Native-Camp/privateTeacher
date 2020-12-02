@@ -2,6 +2,7 @@ import {
   Course_GET_TEACHER_COURSE_By_Id,
   Course_GET_Time_COURSE_By_Id,
   FETCH_ERROR,
+  Course_PUSH_TEACHER_COURSE_By_Id,
 } from '../actions/types';
 const initialState = {
   teacherCourses: [
@@ -37,8 +38,17 @@ const courseReducer = (state = initialState, action) => {
     case Course_GET_TEACHER_COURSE_By_Id:
       return {...state, teacherCourses: action.payload};
 
+    case Course_PUSH_TEACHER_COURSE_By_Id:
+      console.log('course payload : ', action.payload);
+      console.log('...state : ', {...state});
+      return {
+        ...state,
+        teacherCourses: [...state.teacherCourses, action.payload],
+      };
+
     case FETCH_ERROR:
       return {...state, error: action.payload};
+
     default:
       return state;
   }

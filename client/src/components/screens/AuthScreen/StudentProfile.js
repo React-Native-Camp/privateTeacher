@@ -4,7 +4,7 @@ import {Input, Button} from 'react-native-elements';
 import {Formik} from 'formik';
 import PersonCard from '../../PersonCard';
 import {useDispatch, useSelector} from 'react-redux';
-import {SaveStudentProfile} from '../../../actions/studenAction';
+import {SaveStudentProfile} from '../../../actions/userAction';
 
 export default function TeacherCourses() {
   const dispatch = useDispatch();
@@ -19,11 +19,11 @@ export default function TeacherCourses() {
     setIsEdit(false);
     setDisabledInput(true);
     // alert('editHandle');
-    console.log("values : " ,values);
+    console.log('values : ', values);
     dispatch(SaveStudentProfile(values));
   };
 
-  const StudentData = useSelector((state) => state.student.StudentProfile);
+  const StudentData = useSelector((state) => state.user.StudentProfile);
   console.log('StudentData : ', StudentData);
   return (
     <>

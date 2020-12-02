@@ -2,7 +2,7 @@ import {applyMiddleware, createStore, compose, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 
 import demoReducer from './reducers/demoReducer';
-import studentReducer from './reducers/studentReducer';
+import userReducer from './reducers/userReducer';
 import authReducer from './reducers/authReducer';
 const rootReducers = combineReducers({
   // demo is name to use with state for demoReducer
@@ -11,7 +11,7 @@ const rootReducers = combineReducers({
   // ex : demo.users
   // where users using in demoAction
   demo: demoReducer,
-  student: studentReducer,
+  user: userReducer,
   Auth: authReducer,
 });
 

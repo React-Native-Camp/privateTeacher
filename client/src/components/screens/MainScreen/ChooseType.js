@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Image, Button, ToastAndroid} from 'react-native';
-import {setUserType} from '../../../actions/studenAction';
+import {setUserType} from '../../../actions/userAction';
 import RadioForm from 'react-native-simple-radio-button';
 import {useDispatch, useSelector} from 'react-redux';
 var Types = [
-  {label: 'continue as a sttudent', value: 'student'},
+  {label: 'continue as a student', value: 'student'},
   {label: 'continue as a teacher', value: 'teacher'},
 ];
 
 function ChooseType() {
   const [selectedValue, setSelected] = useState();
   const dispatch = useDispatch();
-  const uservalue = useSelector((state) => state.student);
+  const uservalue = useSelector((state) => state.user);
   console.log('userValue', uservalue);
   return (
     <View style={styles.main}>

@@ -9,22 +9,24 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MultiSelectView from 'react-native-multiselect-view';
-// import {bindActionCreators} from 'redux';
-// import {connect} from 'react-redux';
-// import {
-//   inputCourseNameChange,
-//   inputDescreptionChange,
-//   inputPriceChange,
-//   inputLevelChange,
-//   inputScheduleChange,
-// } from '../../../../actions/addcourseAction';
+
 import Schedule from './Schedule';
 
 var levels = ['level1', 'level2', 'level3'];
 
 function Addcourse() {
-  // class Addcourse extends React.Component {
-  // render() {
+  const [state, setState] = useState({
+    course_name: '',
+    descreption: '',
+    price: '',
+  });
+
+  const handlechange = event => {
+    setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <View style={styles.main}>
       <TouchableOpacity style={styles.teacher}>
@@ -39,25 +41,28 @@ function Addcourse() {
         <View style={styles.inputs}>
           <TextInput
             style={styles.inputText}
+            name="course_name"
             placeholder="course name.."
-            // value={this.props.course_name}
-            // onChange={this.props.inputCourseNameChange}
+            value={state.course_name}
+            onChange={handlechange}
           />
         </View>
         <View style={styles.inputs}>
           <TextInput
             style={styles.inputText}
+            name="descreption"
             placeholder="Descreption.."
-            // value={this.props.descreption}
-            // onChange={this.props.inputDescreptionChange}
+            value={state.descreption}
+            onChange={handlechange}
           />
         </View>
         <View style={styles.inputs}>
           <TextInput
             style={styles.inputText}
+            name="price"
             placeholder="Price.."
-            // value={this.props.price}
-            // onChange={this.props.inputPriceChange}
+            value={state.price}
+            onChange={handlechange}
           />
         </View>
         <View style={styles.border}>
@@ -85,7 +90,6 @@ function Addcourse() {
     </View>
   );
 }
-// }
 
 const styles = StyleSheet.create({
   main: {
@@ -166,27 +170,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapState = state => {
-//   return {
-//     course_name: state.addcourseReducer.course_name,
-//     descreption: state.addcourseReducer.descreption,
-//     price: state.addcourseReducer.price,
-//     level: state.addcourseReducer.level,
-//     schedule: state.addcourseReducer.schedule,
-//   };
-// };
-// const mapAction = dispatch => {
-//   return bindActionCreators(
-//     {
-//       inputCourseNameChange,
-//       inputDescreptionChange,
-//       inputPriceChange,
-//       inputLevelChange,
-//       inputScheduleChange,
-//     },
-//     dispatch,
-//   );
-// };
-
-// export default connect(mapState, mapAction)(Addcourse);
 export default Addcourse;

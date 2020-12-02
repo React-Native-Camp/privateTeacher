@@ -21,7 +21,7 @@ const Schedule = () => {
   return (
     <View>
       <View>
-        <Button title="Schedule" color="#F0AB2A" onPress={showDatePicker} />
+        <Button title="Schedule" color="#505FAB" onPress={showDatePicker} />
       </View>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}

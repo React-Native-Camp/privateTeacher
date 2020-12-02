@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, Alert} from 'react-native';
 import SocialLogin from '../../Buttons/SocialLogin';
+import {useDispatch, useSelector} from 'react-redux';
+import {AuthChange} from '../../../actions/authAction';
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-start',
@@ -47,6 +49,9 @@ const createTwoButtonAlert = () =>
   );
 
 const LoginScreen = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state);
+  console.log('authLogin', auth);
   return (
     <View style={styles.container}>
       <Image style={styles.Logo} source={require('../../../assets/logo.png')} />
@@ -56,14 +61,14 @@ const LoginScreen = () => {
       <View style={styles.loginContainer}>
         <SocialLogin
           iconName={'google'}
-          onPress={createTwoButtonAlert}
+          onPress={() => dispatch(AuthChange(true))}
           title={'Login with Google'}
           borderColor={'#28AE81'}
           iconColor={'#34A853'}
         />
         <SocialLogin
           iconName={'facebook'}
-          onPress={createTwoButtonAlert}
+          onPress={() => dispatch(AuthChange(true))}
           title={'Login with Facebook'}
           borderColor={'#395185'}
           iconColor={'#395185'}

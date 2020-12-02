@@ -27,10 +27,10 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       {/* <TeacherCourses /> */}
       {/* <PersonCard /> */}
-      {/* <ChooseType />*/}
-      {/*  <LoginScreen /> */}
+      <ChooseType />
+      {/* <LoginScreen /> */}
       {/* <HomeScreen /> */}
-      <StudentProfile />
+      {/* <StudentProfile /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;

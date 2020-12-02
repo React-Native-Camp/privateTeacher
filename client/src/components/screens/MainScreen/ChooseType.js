@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Image, Button, ToastAndroid} from 'react-native';
-
+import {setUserType} from '../../../actions/userAction';
 import RadioForm from 'react-native-simple-radio-button';
-
+import {useDispatch, useSelector} from 'react-redux';
 var Types = [
-  {label: 'continue as a sttudent', value: 0},
-  {label: 'continue as a teacher', value: 1},
+  {label: 'continue as a student', value: 'student'},
+  {label: 'continue as a teacher', value: 'teacher'},
 ];
 
 function ChooseType() {
+  const [selectedValue, setSelected] = useState();
+  const dispatch = useDispatch();
+  const uservalue = useSelector((state) => state.user);
+  console.log('userValue', uservalue);
   return (
     <View style={styles.main}>
       {/* <View> */}
@@ -22,7 +26,7 @@ function ChooseType() {
           radio_props={Types}
           initial={-1}
           onPress={(value) => {
-            ToastAndroid.show(value.toString(), ToastAndroid.SHORT);
+            setSelected(value);
           }}
           buttonSize={30}
           buttonOuterSize={40}
@@ -34,7 +38,11 @@ function ChooseType() {
       </View>
 
       <View style={styles.Button}>
-        <Button title="Confirm" color="#28AE81" />
+        <Button
+          title="Confirm"
+          color="#28AE81"
+          onPress={() => dispatch(setUserType(selectedValue))}
+        />
       </View>
     </View>
   );

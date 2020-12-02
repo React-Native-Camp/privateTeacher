@@ -11,6 +11,9 @@ var times = [
   {label: 'Nov , 28 3:00 PM 3 houre  60$', value: 4},
 ];
 
+
+
+
 const ConfirmScreen = () => {
   return (
     <ScrollView>

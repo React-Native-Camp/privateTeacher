@@ -5,24 +5,25 @@ import {
   USER_SET_TYPE,
 } from '../actions/types';
 const initialState = {
-  StudentProfile: {
+  userProfile: {
     name: 'Ahmed Mostafa',
     phone: '05985255',
     address: 'Hebron',
     age: '25',
     type: '',
+    avatar: '',
   },
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_SAVE_PROFILE:
-      return {...state, StudentProfile: action.payload};
+      return {...state, userProfile: action.payload};
     case USER_SET_TYPE:
       console.log('userReducer : ', action);
       return {
         ...state,
-        StudentProfile: {...state.StudentProfile, type: action.payload},
+        userProfile: {...state.userProfile, type: action.payload},
       };
     case USER_ERROR:
     case USER_SET_TYPE_ERROR:

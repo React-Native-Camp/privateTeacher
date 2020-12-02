@@ -8,3 +8,9 @@ export const AUTH_CHANGE = 'AUTH_CHANGE';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_SET_TYPE = 'USER_SET_TYPE';
 export const USER_SET_TYPE_ERROR = 'USER_SET_TYPE_ERROR';
+
+// Courses
+export const Course_GET_TEACHER_COURSE_By_Id =
+  'Course_GET_TEACHER_COURSE_By_Id';
+
+export const Course_GET_Time_COURSE_By_Id = 'Course_GET_Time_COURSE_By_Id';

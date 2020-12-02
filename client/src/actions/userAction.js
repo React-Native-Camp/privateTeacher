@@ -6,14 +6,21 @@ import {
 } from './types';
 
 // this demoe just for test
-export const SaveStudentProfile = ({phone, address, age, name}) => (
-  dispatch,
-) => {
+export const SaveUserProfile = ({
+  phone,
+  address,
+  age,
+  name,
+  type,
+  avatar,
+  rating,
+  subject,
+}) => (dispatch) => {
   try {
     // send data to server to update in db
     dispatch({
       type: USER_SAVE_PROFILE,
-      payload: {phone, address, age, name},
+      payload: {phone, address, age, name, type, avatar, rating, subject},
     });
   } catch (err) {
     dispatch({type: USER_ERROR, payload: err});

@@ -5,10 +5,9 @@ import ChooseType from './components/screens/MainScreen/ChooseType';
 import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
 import HomeScreen from './components/screens/MainScreen/HomeScreen';
 import StudentProfile from '../src/components/screens/AuthScreen/StudentProfile';
-
-import ConfirmScreen from '../src/components/screens/AuthScreen/ConfirmScreen';
 import StudentCourse from '../src/components/screens/AuthScreen/StudentCourse';
-
+import ConfirmScrren from '../src/components/screens/AuthScreen/ConfirmScreen';
+import AddCourse from './components/screens/MainScreen/AddCourse/AddCourse';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDemo} from './actions/demoAction';
 
@@ -28,6 +27,7 @@ const App = () => {
   const users = useSelector((state) => state.demo.users);
   return (
     <SafeAreaView style={styles.container}>
+      <AddCourse />
       {/* <TeacherCourses /> */}
       {/* <PersonCard /> */}
       {/* <ChooseType /> */}
@@ -36,6 +36,7 @@ const App = () => {
       {/* <StudentProfile /> */}
       {/* <ConfirmScreen /> */}
       <StudentCourse />
+      {/* <ConfirmScrren /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;

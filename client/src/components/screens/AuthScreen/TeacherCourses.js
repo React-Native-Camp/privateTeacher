@@ -54,24 +54,7 @@ const buildCourse = (teacherCourses) => {
 };
 
 export default function TeacherCourses() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(
-      SaveUserProfile({
-        phone: '059855582',
-        address: '....',
-        age: '...',
-        name: 'Stella Russell',
-        type: 'teacher',
-        avatar:
-          'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
-        rating: 3,
-        subject: ['math', 'Science'],
-      }),
-    );
-  }, []);
-
-  const teacherProfile = useSelector((state) => state.user.userProfile);
+  const teacherProfile = useSelector((state) => state.user.teacherProfile);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
 
   // console.log('teacherCourses : ', teacherCourses);

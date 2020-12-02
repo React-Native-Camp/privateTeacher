@@ -3,6 +3,7 @@ export const FETCH_ERROR = 'FETCH_ERROR';
 
 // USER
 export const USER_SAVE_PROFILE = 'USER_SAVE_PROFILE';
+export const Teacher_SAVE_PROFILE = 'Teacher_SAVE_PROFILE';
 export const USER_ERROR = 'USER_ERROR';
 export const AUTH_CHANGE = 'AUTH_CHANGE';
 export const AUTH_ERROR = 'AUTH_ERROR';
@@ -14,3 +15,4 @@ export const Course_GET_TEACHER_COURSE_By_Id =
   'Course_GET_TEACHER_COURSE_By_Id';
 
 export const Course_GET_Time_COURSE_By_Id = 'Course_GET_Time_COURSE_By_Id';
+export const Course_BOOK = 'Course_BOOK';

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Image, Button, ToastAndroid} from 'react-native';
-import {setUserType} from '../../../actions/studenAction';
+import {setUserType} from '../../../actions/userAction';
 import RadioForm from 'react-native-simple-radio-button';
 import {useNavigation} from '@react-navigation/native';
 
@@ -13,16 +13,18 @@ var Types = [
 function ChooseType() {
   const navigation = useNavigation();
   const [selectedValue, setSelected] = useState();
-  const [selectedNav, setNav] = useState();
+  // const [selectedNav, setNav] = useState();
   const dispatch = useDispatch();
-  const uservalue = useSelector((state) => state.student);
-  const userType = uservalue.StudentProfile.type;
-  const navigationOption = (userType) => {
-    if (userType === 'student') setNav('studentNavigation');
-    if (userType === 'teacher') setNav('teacherNavigation');
-  };
+  const uservalue = useSelector((state) => state.user);
+  // const userType = uservalue.StudentProfile.type;
+  // function navigationOption(uservalue) {
+  //   if (uservalue.StudentProfile.type === 'student')
+  //     return navigation.navigate('studentNavigation');
+  //   if (uservalue.StudentProfile.type === 'teacher')
+  //     return navigation.navigate('teacherNavigation');
+  // }
   console.log('userValue', uservalue);
-  console.log('userValue', userType);
+  // console.log('userValue', userType);
   return (
     <View style={styles.main}>
       {/* <View> */}
@@ -55,11 +57,12 @@ function ChooseType() {
           color="#28AE81"
           onPress={() => {
             dispatch(setUserType(selectedValue));
-            console.log('words', userType);
-            if (userType === 'student')
+            // navigationOption;
+            if (uservalue.StudentProfile.type === 'student')
               navigation.navigate('studentNavigation');
-            if (userType === 'teacher')
+            if (uservalue.StudentProfile.type === 'teacher')
               navigation.navigate('teacherNavigation');
+            dispatch(setUserType(selectedValue));
           }}
         />
       </View>

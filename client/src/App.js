@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, SafeAreaView, StyleSheet} from 'react-native';
 import ConfirmScrren from './components/screens/AuthScreen/ConfirmScreen';
+import StudentProfile from './components/screens/AuthScreen/StudentProfile';
 import HomeScrren from './components/screens/MainScreen/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import AuthNavigation from './navigation/AuthNavigation';
@@ -33,6 +34,7 @@ const App = () => {
       {/* <LoginScreen /> */}
       {/* <HomeScreen /> */}
       {/* <ConfirmScrren /> */}
+      {/* <StudentProfile /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;
@@ -40,15 +42,9 @@ const App = () => {
 
       <NavigationContainer theme={navigationTheme}>
         <AuthNavigation />
-        {/* <AppNavigation /> */}
       </NavigationContainer>
     </SafeAreaView>
   );
 };
 
 export default App;
-
-// <NavigationContainer theme={navigationTheme}>
-// <AuthNavigation />
-// {/* <AppNavigation /> */}
-// </NavigationContainer>

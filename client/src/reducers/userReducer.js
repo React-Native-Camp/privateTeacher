@@ -1,6 +1,6 @@
 import {
-  STUDENT_ERROR,
-  STUDENT_SAVE_PROFILE,
+  USER_ERROR,
+  USER_SAVE_PROFILE,
   USER_SET_TYPE_ERROR,
   USER_SET_TYPE,
 } from '../actions/types';
@@ -14,28 +14,23 @@ const initialState = {
   },
 };
 
-const studentReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case STUDENT_SAVE_PROFILE:
-      console.log('StudentProfile payload : ', action.payload);
-      console.log('...state : ', {...state});
-
+    case USER_SAVE_PROFILE:
       return {...state, StudentProfile: action.payload};
-
-    case STUDENT_ERROR:
-    case USER_SET_TYPE_ERROR:
-      return {...state, error: action.payload};
     case USER_SET_TYPE:
-      console.log('StudentProfile Type payload : ', action.payload);
-      console.log('...state : ', {...state});
+      console.log('userReducer : ', action);
       return {
         ...state,
         StudentProfile: {...state.StudentProfile, type: action.payload},
       };
+    case USER_ERROR:
+    case USER_SET_TYPE_ERROR:
+      return {...state, error: action.payload};
 
     default:
       return state;
   }
 };
 
-export default studentReducer;
+export default userReducer;

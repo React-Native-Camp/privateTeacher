@@ -5,6 +5,8 @@ import PersonCard from '../../PersonCard';
 import {useDispatch, useSelector} from 'react-redux';
 import {SaveUserProfile} from '../../../actions/userAction';
 
+// import {useNavigation} from '@react-navigation/native';
+
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {
   firstCourse: {name: 'course name', durtion: '1 hour', price: '30$'},
@@ -12,6 +14,7 @@ let courseInfo = {
   thirdCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
 };
 const buildCourse = (teacherCourses) => {
+  // const navigation = useNavigation();
   return teacherCourses?.map((item) => {
     return (
       <View key={item.id} style={styles.container}>
@@ -29,10 +32,16 @@ const buildCourse = (teacherCourses) => {
 
         <View style={styles.book}>
           <TouchableOpacity
-            onPress={() =>
-              alert(
-                `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-              )
+            onPress={
+              () =>
+                alert(
+                  `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
+                )
+
+              // navigation.navigate('ConfirmScrren', {
+              //   couseId: item.id,
+              //   teacherId: item.teacherId,
+              // })
             }>
             <Text h6 style={{color: 'green'}}>
               Book
@@ -65,7 +74,7 @@ export default function TeacherCourses() {
   const teacherProfile = useSelector((state) => state.user.userProfile);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
 
-  console.log('teacherCourses : ', teacherCourses);
+  // console.log('teacherCourses : ', teacherCourses);
   return (
     <ScrollView>
       <View

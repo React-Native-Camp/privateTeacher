@@ -25,12 +25,12 @@ const App = () => {
   const users = useSelector((state) => state.demo.users);
   return (
     <SafeAreaView style={styles.container}>
-      {/* <TeacherCourses /> */}
+      <TeacherCourses />
       {/* <PersonCard /> */}
       {/* <ChooseType /> */}
       {/* <LoginScreen /> */}
       {/* <HomeScreen /> */}
-      <StudentProfile />
+      {/* <StudentProfile /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;

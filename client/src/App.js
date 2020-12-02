@@ -5,7 +5,7 @@ import ChooseType from './components/screens/MainScreen/ChooseType';
 import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
 import HomeScreen from './components/screens/MainScreen/HomeScreen';
 import ConfirmScrren from '../src/components/screens/AuthScreen/ConfirmScreen';
-
+import AddCourse from './components/screens/MainScreen/AddCourse/AddCourse';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDemo} from './actions/demoAction';
 
@@ -22,15 +22,16 @@ const App = () => {
   //   dispatch(fetchDemo());
   // }, []);
 
-  const users = useSelector((state) => state.demo.users);
+  const users = useSelector(state => state.demo.users);
   return (
     <SafeAreaView style={styles.container}>
+      <AddCourse />
       {/* <TeacherCourses /> */}
       {/* <PersonCard /> */}
       {/* <ChooseType />*/}
       {/*  <LoginScreen /> */}
       {/* <HomeScreen /> */}
-      <ConfirmScrren />
+      {/* <ConfirmScrren /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {
         return <Text key={index}>{item}</Text>;

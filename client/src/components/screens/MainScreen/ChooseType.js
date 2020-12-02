@@ -1,16 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Image, Button, ToastAndroid} from 'react-native';
-
+import {setUserType} from '../../../actions/studenAction';
 import RadioForm from 'react-native-simple-radio-button';
 import {useNavigation} from '@react-navigation/native';
 
+import {useDispatch, useSelector} from 'react-redux';
 var Types = [
-  {label: 'continue as a sttudent', value: 0},
-  {label: 'continue as a teacher', value: 1},
+  {label: 'continue as a sttudent', value: 'student', nav: 'studentNavigation'},
+  {label: 'continue as a teacher', value: 'teacher', nav: 'teacherNavigation'},
 ];
 
 function ChooseType() {
   const navigation = useNavigation();
+  const [selectedValue, setSelected] = useState();
+  const [selectedNav, setNav] = useState();
+  const dispatch = useDispatch();
+  const uservalue = useSelector((state) => state.student);
+  const userType = uservalue.StudentProfile.type;
+  const navigationOption = (userType) => {
+    if (userType === 'student') setNav('studentNavigation');
+    if (userType === 'teacher') setNav('teacherNavigation');
+  };
+  console.log('userValue', uservalue);
+  console.log('userValue', userType);
   return (
     <View style={styles.main}>
       {/* <View> */}
@@ -24,7 +36,9 @@ function ChooseType() {
           radio_props={Types}
           initial={-1}
           onPress={(value) => {
-            ToastAndroid.show(value.toString(), ToastAndroid.SHORT);
+            {
+              setSelected(value);
+            }
           }}
           buttonSize={30}
           buttonOuterSize={40}
@@ -39,7 +53,14 @@ function ChooseType() {
         <Button
           title="Confirm"
           color="#28AE81"
-          onPress={() => navigation.navigate('TeacherCourses')}
+          onPress={() => {
+            dispatch(setUserType(selectedValue));
+            console.log('words', userType);
+            if (userType === 'student')
+              navigation.navigate('studentNavigation');
+            if (userType === 'teacher')
+              navigation.navigate('teacherNavigation');
+          }}
         />
       </View>
     </View>

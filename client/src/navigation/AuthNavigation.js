@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
-
+import AppNavigation from './AppNavigation';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginScreen from '../components/screens/MainScreen/LoginScreen';
 import ChooseType from '../components/screens/MainScreen/ChooseType';
@@ -27,12 +27,12 @@ const StaNav = () => (
       options={{headerShown: false}}
     />
     <Stack.Screen
-      name="TeacherCourses"
-      component={TeacherCourses}
+      name="studentNavigation"
+      component={AppNavigation}
       options={{headerShown: false}}
     />
     <Stack.Screen
-      name="ConfirmScrren"
+      name="teacherNavigation"
       component={ConfirmScrren}
       options={{headerShown: false}}
     />

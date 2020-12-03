@@ -3,6 +3,7 @@ import {Text, SafeAreaView, StyleSheet} from 'react-native';
 import LoginScreen from './components/screens/MainScreen/LoginScreen';
 import ChooseType from './components/screens/MainScreen/ChooseType';
 import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
+import TeacheProfile from './components/screens/AuthScreen/TeacheProfile';
 import HomeScreen from './components/screens/MainScreen/HomeScreen';
 import StudentProfile from '../src/components/screens/AuthScreen/StudentProfile';
 import StudentCourse from '../src/components/screens/AuthScreen/StudentCourse';
@@ -35,7 +36,7 @@ const App = () => {
       {/* <HomeScreen /> */}
       {/* <StudentProfile /> */}
       {/* <ConfirmScreen /> */}
-      <StudentCourse />
+      {/* <StudentCourse /> */}
       {/* <ConfirmScrren /> */}
       {/* <Text>Private Teacher</Text>
       {users?.map((item, index) => {

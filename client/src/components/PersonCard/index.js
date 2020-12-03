@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import ChatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UserIcon from 'react-native-vector-icons/FontAwesome';
+import EditIcon from 'react-native-vector-icons/MaterialIcons';
 import RatingStar from '../RatingStar';
 
 const styles = StyleSheet.create({
@@ -42,51 +43,96 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+const PersonCard = ({
+  imageProfile,
+  name,
+  displayEdit,
+  displayUserIcon,
+  displayChatIcon,
+  displayCoures,
+  coures,
+  displayRating,
+  rating,
+  enableEdit,
+  displaySave,
+  editHandle,
+}) => {
+  const imageUrl = imageProfile ? (
+    <Image style={{width: '100%', height: 350}} source={{uri: imageProfile}} />
+  ) : (
+    <Image
+      style={{width: '100%', height: 280}}
+      source={require('../../assets/default-avatar.jpg')}
+    />
+  );
 
-const PersonCard = () => {
   return (
     <TouchableOpacity>
       <View style={styles.mainContainer}>
-        <View style={{height: 280}}>
-          <Image source={require('../../assets/teacher.png')} />
-        </View>
+        <View style={{height: 250}}>{imageUrl}</View>
         <View style={styles.detailControl}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={styles.personName}>Stella Russell</Text>
+            <Text style={styles.personName}>{name}</Text>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <UserIcon
-                name="user-o"
-                size={40}
-                color="#F0AB2A"
-                style={{marginRight: 16}}
-              />
-              <ChatIcon
-                name="chat-processing-outline"
-                size={40}
-                color="#F0AB2A"
-              />
-            </View>
-          </View>
-          <View style={styles.coursesContainer}>
-            <View style={styles.courseCard}>
-              <Text style={styles.courseText}>math</Text>
-            </View>
+              {displayUserIcon ? (
+                <UserIcon
+                  name="user-o"
+                  size={40}
+                  color="#F0AB2A"
+                  style={{marginRight: 16}}
+                />
+              ) : null}
 
-            <View style={styles.courseCard}>
-              <Text style={styles.courseText}>Science</Text>
-            </View>
+              {displayChatIcon ? (
+                <ChatIcon
+                  name="chat-processing-outline"
+                  size={40}
+                  color="#F0AB2A"
+                />
+              ) : null}
 
-            <View style={styles.courseCard}>
-              <Text style={styles.courseText}>Science</Text>
+              {displayEdit ? (
+                <EditIcon
+                  name="edit"
+                  size={40}
+                  color="#28AE81"
+                  onPress={enableEdit}
+                />
+              ) : null}
+              {displaySave ? (
+                <EditIcon
+                  name="save"
+                  size={40}
+                  color="#28AE81"
+                  onPress={editHandle}
+                />
+              ) : null}
             </View>
           </View>
-          {/* dsdnscerfwe */}
-          <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-            <Text>2</Text>
-            <RatingStar value={2} />
-          </View>
-          {/* erfjlweirfjerfkwlrf */}
+          {displayCoures ? (
+            <View style={styles.coursesContainer}>
+              {coures?.map((item, index) => (
+                <View key={index} style={styles.courseCard}>
+                  <Text style={styles.courseText}>{item}</Text>
+                </View>
+              ))}
+            </View>
+          ) : null}
+
+          {displayRating ? (
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                marginTop: 8,
+              }}>
+              <Text style={{fontSize: 20, marginRight: 16, marginLeft: 16}}>
+                {rating}
+              </Text>
+              <RatingStar value={rating} />
+            </View>
+          ) : null}
         </View>
       </View>
     </TouchableOpacity>

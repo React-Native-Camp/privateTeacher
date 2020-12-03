@@ -1,28 +1,48 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {Button} from 'react-native-elements';
+// import {useRoute} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {GetCourseTime, BookCourse} from '../../../actions/courseAction';
 import PersonCard from '../../PersonCard';
 import RadioForm from 'react-native-simple-radio-button';
 
-var times = [
-  {label: 'Nov , 20 4:00 PM 1 houre  20$', value: 0},
-  {label: 'Nov , 22 2:00 PM 1:30 houre  30$', value: 2},
-  {label: 'Nov , 25 1:00 PM 2 houre  40$', value: 3},
-  {label: 'Nov , 28 3:00 PM 3 houre  60$', value: 4},
-];
-
 const ConfirmScreen = () => {
+  // const route = useRoute();
+  const dispatch = useDispatch();
+  const [timeSelected, setTimeSelected] = useState();
+  const [couseId, setCouseId] = useState();
+  const [teacherId, setTeacherId] = useState();
+
+  useEffect(() => {
+    setCouseId(1); //setCouseId(route.params.couseId);
+    setTeacherId(1); //setTeacherId(route.params.teacherId);
+    dispatch(GetCourseTime(teacherId, couseId));
+  }, []);
+
+  const times = useSelector((state) => state.courses.coursesTime);
+  const teacherProfile = useSelector((state) => state.user.teacherProfile);
+  const userProfile = useSelector((state) => state.user.userProfile);
+
   return (
     <ScrollView>
       <View style={styles.main}>
-        <PersonCard />
+        <PersonCard
+          imageProfile={teacherProfile?.avatar}
+          name={teacherProfile?.name}
+          displayUserIcon={true}
+          displayCoures={true}
+          displayRating={true}
+          rating={teacherProfile?.rating}
+          coures={teacherProfile?.subject}
+        />
 
         <View style={styles.container}>
           <RadioForm
             radio_props={times}
             initial={-1}
             onPress={(value) => {
-              alert(value);
+              setTimeSelected(value);
             }}
             buttonSize={30}
             buttonOuterSize={40}
@@ -34,12 +54,19 @@ const ConfirmScreen = () => {
         </View>
 
         <View style={styles.Button}>
-          <Button
-            title="Confirm"
-            titleStyle={{fontSize: 24, color: '#fff'}}
-            buttonColor="#28AE81"
-            buttonStyle={{backgroundColor: '#28AE81'}}
-          />
+          {timeSelected ? (
+            <Button
+              title="Confirm"
+              titleStyle={{fontSize: 24, color: '#fff'}}
+              buttonColor="#28AE81"
+              buttonStyle={{backgroundColor: '#28AE81'}}
+              onPress={() => {
+                dispatch(
+                  BookCourse(teacherId, couseId, userProfile.id, timeSelected),
+                );
+              }}
+            />
+          ) : null}
         </View>
       </View>
     </ScrollView>

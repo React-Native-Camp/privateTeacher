@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import PersonCard from '../../PersonCard';
+import {useDispatch, useSelector} from 'react-redux';
+import {SaveUserProfile} from '../../../actions/userAction';
+
+// import {useNavigation} from '@react-navigation/native';
 
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {
@@ -9,26 +13,36 @@ let courseInfo = {
   secondCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
   thirdCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
 };
-const buildCourse = () => {
-  return Object.keys(courseInfo).map((key, index) => {
+const buildCourse = (teacherCourses) => {
+  // const navigation = useNavigation();
+  return teacherCourses?.map((item) => {
     return (
-      <View key={index} style={styles.container}>
+      <View key={item.id} style={styles.container}>
         <View style={styles.cardView}>
           <View>
-            <Text style={{fontSize: 24}}>{courseInfo[key].name}</Text>
+            <Text style={{fontSize: 24}}>{item.name}</Text>
           </View>
           <View style={styles.courseDetails}>
             <Text style={{marginRight: 20, color: 'gray', fontSize: 18}}>
-              {courseInfo[key].durtion}
+              {item.durtion}
             </Text>
-            <Text style={{color: 'gray', fontSize: 18}}>
-              {courseInfo[key].price}
-            </Text>
+            <Text style={{color: 'gray', fontSize: 18}}>{item.price}</Text>
           </View>
         </View>
 
         <View style={styles.book}>
-          <TouchableOpacity onPress={() => alert('You tapped the button!')}>
+          <TouchableOpacity
+            onPress={
+              () =>
+                alert(
+                  `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
+                )
+
+              // navigation.navigate('ConfirmScrren', {
+              //   couseId: item.id,
+              //   teacherId: item.teacherId,
+              // })
+            }>
             <Text h6 style={{color: 'green'}}>
               Book
             </Text>
@@ -38,12 +52,34 @@ const buildCourse = () => {
     );
   });
 };
+
 export default function TeacherCourses() {
+  const teacherProfile = useSelector((state) => state.user.teacherProfile);
+  const teacherCourses = useSelector((state) => state.courses.teacherCourses);
+
+  // console.log('teacherCourses : ', teacherCourses);
   return (
-    <>
-      <PersonCard />
-      <ScrollView>{buildCourse()}</ScrollView>
-    </>
+    <ScrollView>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          alignItems: 'stretch',
+          justifyContent: 'center',
+          marginBottom: 46,
+        }}>
+        <PersonCard
+          imageProfile={teacherProfile?.avatar}
+          name={teacherProfile?.name}
+          displayUserIcon={true}
+          displayCoures={true}
+          displayRating={true}
+          rating={teacherProfile?.rating}
+          coures={teacherProfile?.subject}
+        />
+        {buildCourse(teacherCourses)}
+      </View>
+    </ScrollView>
   );
 }
 

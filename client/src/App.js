@@ -24,6 +24,9 @@ const App = () => {
 
   const users = useSelector((state) => state.demo.users);
   return (
+    // <>
+    //   <Router />
+    // </>
     <SafeAreaView style={styles.container}>
       <TeacherCourses />
       {/* <PersonCard /> */}

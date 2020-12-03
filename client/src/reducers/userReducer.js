@@ -3,26 +3,45 @@ import {
   USER_SAVE_PROFILE,
   USER_SET_TYPE_ERROR,
   USER_SET_TYPE,
+  Teacher_SAVE_PROFILE,
 } from '../actions/types';
 const initialState = {
-  StudentProfile: {
+  userProfile: {
+    id: 1,
     name: 'Ahmed Mostafa',
     phone: '05985255',
     address: 'Hebron',
     age: '25',
     type: '',
+    avatar: '',
+  },
+  teacherProfile: {
+    id: 1,
+    phone: '059855582',
+    address: '....',
+    age: '...',
+    name: 'Stella Russell',
+    type: 'teacher',
+    avatar:
+      'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
+    rating: 4,
+    subject: ['math', 'Science'],
   },
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_SAVE_PROFILE:
-      return {...state, StudentProfile: action.payload};
+      return {...state, userProfile: action.payload};
+    case Teacher_SAVE_PROFILE:
+      return {...state, teacherProfile: action.payload};
+
     case USER_SET_TYPE:
-      console.log('userReducer : ', action);
+
+    
       return {
         ...state,
-        StudentProfile: {...state.StudentProfile, type: action.payload},
+        userProfile: {...state.userProfile, type: action.payload},
       };
     case USER_ERROR:
     case USER_SET_TYPE_ERROR:

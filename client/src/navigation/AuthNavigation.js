@@ -5,6 +5,7 @@ import AppNavigation from './AppNavigation';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginScreen from '../components/screens/MainScreen/LoginScreen';
 import ChooseType from '../components/screens/MainScreen/ChooseType';
+import AddCourse from '../components/screens/MainScreen/AddCourse';
 import TeacherCourses from '../components/screens/AuthScreen/TeacherCourses';
 import HomeScreen from '../components/screens/MainScreen/HomeScreen';
 import ConfirmScrren from '../components/screens/AuthScreen/ConfirmScreen';
@@ -33,7 +34,7 @@ const StaNav = () => (
     />
     <Stack.Screen
       name="teacherNavigation"
-      component={ConfirmScrren}
+      component={AddCourse}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

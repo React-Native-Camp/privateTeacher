@@ -50,19 +50,18 @@ const PersonCard = ({
   displayUserIcon,
   displayChatIcon,
   displayCoures,
+  coures,
   displayRating,
+  rating,
   enableEdit,
   displaySave,
   editHandle,
 }) => {
   const imageUrl = imageProfile ? (
-    <Image
-      style={{width: '100%', height: '100%'}}
-      source={{uri: imageProfile}}
-    />
+    <Image style={{width: '100%', height: 350}} source={{uri: imageProfile}} />
   ) : (
     <Image
-      style={{width: '100%'}}
+      style={{width: '100%', height: 280}}
       source={require('../../assets/default-avatar.jpg')}
     />
   );
@@ -113,25 +112,25 @@ const PersonCard = ({
           </View>
           {displayCoures ? (
             <View style={styles.coursesContainer}>
-              <View style={styles.courseCard}>
-                <Text style={styles.courseText}>math</Text>
-              </View>
-
-              <View style={styles.courseCard}>
-                <Text style={styles.courseText}>Science</Text>
-              </View>
-
-              <View style={styles.courseCard}>
-                <Text style={styles.courseText}>Science</Text>
-              </View>
+              {coures?.map((item, index) => (
+                <View key={index} style={styles.courseCard}>
+                  <Text style={styles.courseText}>{item}</Text>
+                </View>
+              ))}
             </View>
           ) : null}
 
           {displayRating ? (
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-              <Text>2</Text>
-              <RatingStar value={2} />
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                marginTop: 8,
+              }}>
+              <Text style={{fontSize: 20, marginRight: 16, marginLeft: 16}}>
+                {rating}
+              </Text>
+              <RatingStar value={rating} />
             </View>
           ) : null}
         </View>

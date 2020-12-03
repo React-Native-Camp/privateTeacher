@@ -1,12 +1,18 @@
 import React, {useEffect} from 'react';
 import {Text, SafeAreaView, StyleSheet} from 'react-native';
-import ConfirmScrren from './components/screens/AuthScreen/ConfirmScreen';
-import StudentProfile from './components/screens/AuthScreen/StudentProfile';
-import HomeScrren from './components/screens/MainScreen/HomeScreen';
+
 import {createStackNavigator} from '@react-navigation/stack';
 import AuthNavigation from './navigation/AuthNavigation';
 import AppNavigation from './navigation/AppNavigation';
 import {NavigationContainer} from '@react-navigation/native';
+import LoginScreen from './components/screens/MainScreen/LoginScreen';
+import ChooseType from './components/screens/MainScreen/ChooseType';
+import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
+import HomeScreen from './components/screens/MainScreen/HomeScreen';
+import StudentProfile from '../src/components/screens/AuthScreen/StudentProfile';
+import StudentCourse from '../src/components/screens/AuthScreen/StudentCourse';
+import ConfirmScrren from '../src/components/screens/AuthScreen/ConfirmScreen';
+import AddCourse from './components/screens/MainScreen/AddCourse/AddCourse';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDemo} from './actions/demoAction';
 import navigationTheme from './navigation/navigationTheme';
@@ -28,6 +34,7 @@ const App = () => {
   // console.log(' appstate', users);
   return (
     <SafeAreaView style={styles.container}>
+      {/* <AddCourse /> */}
       {/* <TeacherCourses /> */}
       {/* <PersonCard /> */}
       {/* <ChooseType /> */}

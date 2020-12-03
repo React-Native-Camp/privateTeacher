@@ -58,9 +58,9 @@ function ChooseType() {
           onPress={() => {
             dispatch(setUserType(selectedValue));
             // navigationOption;
-            if (uservalue.StudentProfile.type === 'student')
+            if (uservalue.userProfile.type === 'student')
               navigation.navigate('studentNavigation');
-            if (uservalue.StudentProfile.type === 'teacher')
+            if (uservalue.userProfile.type === 'teacher')
               navigation.navigate('teacherNavigation');
             dispatch(setUserType(selectedValue));
           }}

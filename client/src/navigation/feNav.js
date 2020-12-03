@@ -8,6 +8,7 @@ import ChooseType from '../components/screens/MainScreen/ChooseType';
 import TeacherCourses from '../components/screens/AuthScreen/TeacherCourses';
 import HomeScreen from '../components/screens/MainScreen/HomeScreen';
 import ConfirmScrren from '../components/screens/AuthScreen/ConfirmScreen';
+import TeacheProfile from '../components/screens/AuthScreen/TeacheProfile';
 const Stack = createStackNavigator();
 const feNav = () => (
   <Stack.Navigator mode="modal">
@@ -19,6 +20,11 @@ const feNav = () => (
     <Stack.Screen
       name="ConfirmScrren"
       component={ConfirmScrren}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="TeacheProfile"
+      component={TeacheProfile}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

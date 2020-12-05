@@ -5,19 +5,45 @@ import UserIcon from 'react-native-vector-icons/FontAwesome';
 import EditIcon from 'react-native-vector-icons/MaterialIcons';
 import RatingStar from '../RatingStar';
 
+const profileImageStyles = (profileImageSizeStyle) => {
+  const {height, width, borderRadius} = profileImageSizeStyle;
+
+  return StyleSheet.create({
+    profileImageContainer: {
+      height: height ? height : 250,
+      width: width ? width : '100%',
+    },
+    profileImage: {
+      width: '100%',
+      height: height ? height : 350,
+      borderRadius: borderRadius ? borderRadius : 0,
+    },
+  });
+};
+
+const detailControlStyles = (detailControlStyle) => {
+  const {position, top, width} = detailControlStyle;
+  return StyleSheet.create({
+    detailControl: {
+      backgroundColor: '#FFFBFB',
+      // height: 140,
+      marginLeft: 30,
+      marginRight: 30,
+      borderWidth: 1,
+      borderColor: '#E1D6D6',
+      borderRadius: 12,
+      padding: 16,
+      display: 'flex',
+      position: position ? position : 'relative',
+      alignSelf: 'center',
+      top: top ? top : 0,
+      width: width ? width : '100%',
+    },
+  });
+};
+
 const styles = StyleSheet.create({
   mainContainer: {},
-  detailControl: {
-    backgroundColor: '#FFFBFB',
-    // height: 140,
-    marginLeft: 30,
-    marginRight: 30,
-    borderWidth: 1,
-    borderColor: '#E1D6D6',
-    borderRadius: 12,
-    padding: 16,
-    display: 'flex',
-  },
   personName: {
     fontSize: 24,
   },
@@ -43,6 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
 const PersonCard = ({
   imageProfile,
   name,
@@ -56,9 +83,14 @@ const PersonCard = ({
   enableEdit,
   displaySave,
   editHandle,
+  profileImageSizeStyle,
+  detailControlStyle,
 }) => {
   const imageUrl = imageProfile ? (
-    <Image style={{width: '100%', height: 350}} source={{uri: imageProfile}} />
+    <Image
+      style={profileImageStyles(profileImageSizeStyle).profileImage}
+      source={{uri: imageProfile}}
+    />
   ) : (
     <Image
       style={{width: '100%', height: 280}}
@@ -69,8 +101,15 @@ const PersonCard = ({
   return (
     <TouchableOpacity>
       <View style={styles.mainContainer}>
-        <View style={{height: 250}}>{imageUrl}</View>
-        <View style={styles.detailControl}>
+        <View
+          style={
+            profileImageStyles(
+              profileImageSizeStyle ? profileImageSizeStyle : '',
+            ).profileImageContainer
+          }>
+          {imageUrl}
+        </View>
+        <View style={detailControlStyles(detailControlStyle).detailControl}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.personName}>{name}</Text>
             <View

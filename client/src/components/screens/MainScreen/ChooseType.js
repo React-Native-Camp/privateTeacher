@@ -3,7 +3,6 @@ import {StyleSheet, View, Image, Button, ToastAndroid} from 'react-native';
 import {setUserType} from '../../../actions/userAction';
 import RadioForm from 'react-native-simple-radio-button';
 import {useNavigation} from '@react-navigation/native';
-
 import {useDispatch, useSelector} from 'react-redux';
 var Types = [
   {label: 'continue as a sttudent', value: 'student', nav: 'studentNavigation'},

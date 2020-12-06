@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
   },
   picker: {
     height: 30,
-    width: 130,
-    color: '#000',
+    width: 140,
+    color: '#FFF',
   },
 });
 

@@ -5,13 +5,41 @@ import {useSelector} from 'react-redux';
 import PersonCard from '../../../PersonCard';
 import {Categories, DropDownPicker, SearchBar} from '../../../sharedComponents';
 import {Design, Art, Math, Social} from '../../../svgComponents';
+import Carousel from '../../../sharedComponents/Carousel';
 
 const StudentHomeScreen = () => {
-  const teacherProfile = useSelector((state) => state.user.teacherProfile);
-  let {width} = Dimensions.get('window');
+  const teachers = useSelector((state) => state.teachers.teachersList);
+  const personCard = (teacher) => {
+    console.log(teacher);
+    return (
+      <View>
+        <PersonCard
+          imageProfile={teacher?.avatar}
+          name={teacher?.name}
+          displayChatIcon={true}
+          displayRating={true}
+          displayCoures={true}
+          rating={teacher?.rating}
+          coures={teacher?.subject}
+          profileImageSizeStyle={{
+            width: '90%',
+            height: 240,
+            borderRadius: 12,
+          }}
+          detailControlStyle={{
+            position: 'absolute',
+            top: 185,
+            width: '80%',
+          }}
+        />
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.homeContainer}>
+        <View style={styles.resContainer} />
         <View style={styles.searchContainer}>
           <Text style={styles.searchByText}>search by</Text>
           <DropDownPicker />
@@ -33,21 +61,7 @@ const StudentHomeScreen = () => {
               <Design />
             </Categories>
           </View>
-          <PersonCard
-            imageProfile={teacherProfile?.avatar}
-            name={teacherProfile?.name}
-            displayChatIcon={true}
-            displayRating={true}
-            displayCoures={true}
-            rating={teacherProfile?.rating}
-            coures={teacherProfile?.subject}
-            profileImageSizeStyle={{width: 320, height: 240, borderRadius: 12}}
-            detailControlStyle={{
-              position: 'absolute',
-              top: 185,
-              width: '100%',
-            }}
-          />
+          <Carousel cards={teachers} card={personCard} />
         </View>
       </View>
     </View>
@@ -58,14 +72,17 @@ const styles = StyleSheet.create({
   container: {},
   homeContainer: {
     position: 'relative',
+    height: Dimensions.get('window').height,
+  },
+  resContainer: {
     backgroundColor: '#28AE81',
     height: 400,
   },
   searchContainer: {
     position: 'absolute',
     alignItems: 'center',
-    width: '100%',
     top: 20,
+    height: '83%',
   },
   searchByText: {
     marginLeft: 30,

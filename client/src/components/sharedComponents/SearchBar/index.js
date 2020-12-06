@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
 const SearchBar = () => {
+  // const [searchValue, setSearchValue] = useState('');
+
   return (
     <View style={styles.searchBarContainer}>
-      <TextInput placeholder="Search" style={styles.searchBar} />
+      <TextInput
+        placeholder="Search"
+        style={styles.searchBar}
+        // onChangeText={(search) => setSearchValue(search)}
+      />
     </View>
   );
 };

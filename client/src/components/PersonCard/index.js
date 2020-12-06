@@ -1,5 +1,12 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import ChatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UserIcon from 'react-native-vector-icons/FontAwesome';
 import EditIcon from 'react-native-vector-icons/MaterialIcons';
@@ -7,14 +14,14 @@ import RatingStar from '../RatingStar';
 
 const profileImageStyles = (profileImageSizeStyle) => {
   const {height, width, borderRadius} = profileImageSizeStyle;
-
   return StyleSheet.create({
     profileImageContainer: {
       height: height ? height : 250,
-      width: width ? width : '100%',
+      width: Dimensions.get('window').width,
+      alignItems: 'center',
     },
     profileImage: {
-      width: '100%',
+      width: width ? width : '100%',
       height: height ? height : 350,
       borderRadius: borderRadius ? borderRadius : 0,
     },

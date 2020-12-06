@@ -10,6 +10,9 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_SET_TYPE = 'USER_SET_TYPE';
 export const USER_SET_TYPE_ERROR = 'USER_SET_TYPE_ERROR';
 
+// Teachers
+export const ADD_TEACHER = 'ADD_TEACHER';
+
 // Courses
 export const Course_GET_TEACHER_COURSE_By_Id =
   'Course_GET_TEACHER_COURSE_By_Id';

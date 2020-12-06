@@ -61,7 +61,7 @@ const PersonCard = ({
     <Image style={{width: '100%', height: 350}} source={{uri: imageProfile}} />
   ) : (
     <Image
-      style={{width: '100%', height: '100%'}}
+      style={{width: '100%', height: 280}}
       source={require('../../assets/default-avatar.jpg')}
     />
   );

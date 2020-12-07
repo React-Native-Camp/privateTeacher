@@ -43,7 +43,7 @@ const StudentHomeScreen = () => {
         <View style={styles.searchContainer}>
           <Text style={styles.searchByText}>search by</Text>
           <DropDownPicker />
-          <SearchBar />
+          <SearchBar searchList={teachers} />
           <View style={styles.categories}>
             <Categories categoryName="Math">
               <Math />
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     top: 20,
-    height: '83%',
+    height: '92%',
   },
   searchByText: {
     marginLeft: 30,

@@ -23,12 +23,10 @@ const styles = StyleSheet.create({
     height: 56,
     borderRadius: 56 / 2,
     backgroundColor: '#F0AB2A',
-    position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
   },
   categoryIcon: {
-    position: 'absolute',
     textAlignVertical: 'center',
   },
   categoryName: {

@@ -19,12 +19,36 @@ const initialState = {
       phone: '0599234567',
       address: '....',
       age: '...',
+      name: 'Fatima Ahmed',
+      type: 'teacher',
+      avatar:
+        'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
+      rating: 5,
+      subject: ['Physics', 'Chemistry'],
+    },
+    {
+      id: 3,
+      phone: '0599234567',
+      address: '....',
+      age: '...',
       name: 'Ahmed Salem',
       type: 'teacher',
       avatar:
         'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
-      rating: 3,
+      rating: 5,
       subject: ['Design', 'Art'],
+    },
+    {
+      id: 4,
+      phone: '0599234567',
+      address: '....',
+      age: '...',
+      name: 'Hammam Adem',
+      type: 'teacher',
+      avatar:
+        'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
+      rating: 2,
+      subject: ['English', 'Arabic'],
     },
   ],
 };

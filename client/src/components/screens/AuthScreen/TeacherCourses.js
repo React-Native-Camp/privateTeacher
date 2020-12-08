@@ -5,12 +5,9 @@ import PersonCard from '../../PersonCard';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {SaveUserProfile} from '../../../actions/userAction';
-<<<<<<< HEAD
-=======
 import {DeleteCourse} from '../../../actions/courseAction';
 import {Avatar} from 'react-native-elements';
 // import {useNavigation} from '@react-navigation/native';
->>>>>>> ab336c54f336574e032486354cdcd832561a1b19
 
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {
@@ -18,13 +15,7 @@ let courseInfo = {
   secondCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
   thirdCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
 };
-<<<<<<< HEAD
-const buildCourse = (teacherCourses) => {
-  const navigation = useNavigation();
-=======
-const buildCourse = (teacherCourses, currentUserType, dispatch) => {
-  // const navigation = useNavigation();
->>>>>>> ab336c54f336574e032486354cdcd832561a1b19
+const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
   return teacherCourses?.map((item) => {
     return (
       <View key={item.id} style={styles.container}>
@@ -63,16 +54,15 @@ const buildCourse = (teacherCourses, currentUserType, dispatch) => {
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
-              onPress={
-                () =>
-                  alert(
-                    `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                  )
+              onPress={() =>
+                // alert(
+                //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
+                // )
 
-                // navigation.navigate('ConfirmScrren', {
-                //   couseId: item.id,
-                //   teacherId: item.teacherId,
-                // })
+                navigation.navigate('ConfirmScrren', {
+                  couseId: item.id,
+                  teacherId: item.teacherId,
+                })
               }>
               <Text h6 style={{color: 'green'}}>
                 Book
@@ -86,11 +76,12 @@ const buildCourse = (teacherCourses, currentUserType, dispatch) => {
 };
 
 export default function TeacherCourses() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const teacherProfile = useSelector((state) => state.user.teacherProfile);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
 
-  const [currentUserType, setCurrentUserType] = useState('teacher');
+  const [currentUserType, setCurrentUserType] = useState('student');
 
   // console.log('teacherCourses : ', teacherCourses);
   return (
@@ -138,7 +129,7 @@ export default function TeacherCourses() {
           />
         )}
 
-        {buildCourse(teacherCourses, currentUserType, dispatch)}
+        {buildCourse(teacherCourses, currentUserType, dispatch, navigation)}
       </View>
     </ScrollView>
   );

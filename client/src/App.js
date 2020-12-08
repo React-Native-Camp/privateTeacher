@@ -28,8 +28,8 @@ const App = () => {
   const users = useSelector((state) => state.demo.users);
   return (
     <SafeAreaView style={styles.container}>
-      <AddCourse />
-      {/* <TeacherCourses /> */}
+      {/* <AddCourse /> */}
+      <TeacherCourses />
       {/* <PersonCard /> */}
       {/* <ChooseType /> */}
       {/* <LoginScreen /> */}

@@ -1,10 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import PersonCard from '../../PersonCard';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {SaveUserProfile} from '../../../actions/userAction';
+<<<<<<< HEAD
+=======
+import {DeleteCourse} from '../../../actions/courseAction';
+import {Avatar} from 'react-native-elements';
+// import {useNavigation} from '@react-navigation/native';
+>>>>>>> ab336c54f336574e032486354cdcd832561a1b19
 
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {
@@ -12,8 +18,13 @@ let courseInfo = {
   secondCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
   thirdCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
 };
+<<<<<<< HEAD
 const buildCourse = (teacherCourses) => {
   const navigation = useNavigation();
+=======
+const buildCourse = (teacherCourses, currentUserType, dispatch) => {
+  // const navigation = useNavigation();
+>>>>>>> ab336c54f336574e032486354cdcd832561a1b19
   return teacherCourses?.map((item) => {
     return (
       <View key={item.id} style={styles.container}>
@@ -30,21 +41,44 @@ const buildCourse = (teacherCourses) => {
         </View>
 
         <View style={styles.book}>
-          <TouchableOpacity
-            onPress={() =>
-              // alert(
-              //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-              // )
+          {currentUserType === 'teacher' ? (
+            <TouchableOpacity
+              onPress={
+                () => {
+                  // alert(
+                  //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
+                  // );
+                  if (dispatch) {
+                    dispatch(DeleteCourse(item.teacherId, item.id));
+                  }
+                }
+                // navigation.navigate('ConfirmScrren', {
+                //   couseId: item.id,
+                //   teacherId: item.teacherId,
+                // })
+              }>
+              <Text h6 style={{color: 'red'}}>
+                Delete
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={
+                () =>
+                  alert(
+                    `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
+                  )
 
-              navigation.navigate('ConfirmScrren', {
-                couseId: item.id,
-                teacherId: item.teacherId,
-              })
-            }>
-            <Text h6 style={{color: 'green'}}>
-              Book
-            </Text>
-          </TouchableOpacity>
+                // navigation.navigate('ConfirmScrren', {
+                //   couseId: item.id,
+                //   teacherId: item.teacherId,
+                // })
+              }>
+              <Text h6 style={{color: 'green'}}>
+                Book
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     );
@@ -52,8 +86,11 @@ const buildCourse = (teacherCourses) => {
 };
 
 export default function TeacherCourses() {
+  const dispatch = useDispatch();
   const teacherProfile = useSelector((state) => state.user.teacherProfile);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
+
+  const [currentUserType, setCurrentUserType] = useState('teacher');
 
   // console.log('teacherCourses : ', teacherCourses);
   return (
@@ -66,16 +103,42 @@ export default function TeacherCourses() {
           justifyContent: 'center',
           marginBottom: 46,
         }}>
-        <PersonCard
-          imageProfile={teacherProfile?.avatar}
-          name={teacherProfile?.name}
-          displayUserIcon={true}
-          displayCoures={true}
-          displayRating={true}
-          rating={teacherProfile?.rating}
-          coures={teacherProfile?.subject}
-        />
-        {buildCourse(teacherCourses)}
+        {currentUserType === 'teacher' ? (
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+              marginTop: 24,
+            }}>
+            <View>
+              <Avatar
+                rounded
+                size="large"
+                source={{
+                  uri: teacherProfile?.avatar,
+                }}></Avatar>
+            </View>
+            <View>
+              <Text style={{textAlign: 'center', fontSize: 24}}>
+                {teacherProfile?.name}
+              </Text>
+            </View>
+          </View>
+        ) : (
+          <PersonCard
+            imageProfile={teacherProfile?.avatar}
+            name={teacherProfile?.name}
+            displayUserIcon={true}
+            displayCoures={true}
+            displayRating={true}
+            rating={teacherProfile?.rating}
+            coures={teacherProfile?.subject}
+          />
+        )}
+
+        {buildCourse(teacherCourses, currentUserType, dispatch)}
       </View>
     </ScrollView>
   );

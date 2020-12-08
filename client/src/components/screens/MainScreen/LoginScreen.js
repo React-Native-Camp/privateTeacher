@@ -63,14 +63,18 @@ const LoginScreen = () => {
       <View style={styles.loginContainer}>
         <SocialLogin
           iconName={'google'}
-          onPress={() => dispatch(AuthChange(true))}
+          onPress={() => {
+            dispatch(AuthChange(true)), navigation.navigate('ChooseType');
+          }}
           title={'Login with Google'}
           borderColor={'#28AE81'}
           iconColor={'#34A853'}
         />
         <SocialLogin
           iconName={'facebook'}
-          onPress={() => dispatch(AuthChange(true))}
+          onPress={() => {
+            dispatch(AuthChange(true)), navigation.navigate('ChooseType');
+          }}
           title={'Login with Facebook'}
           borderColor={'#395185'}
           iconColor={'#395185'}

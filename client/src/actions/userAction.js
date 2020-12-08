@@ -22,6 +22,8 @@ export const SaveUserProfile = ({phone, address, age, name, type}) => (
 };
 
 export const SaveTeacherProfile = ({
+  certificate,
+  experience,
   phone,
   address,
   age,
@@ -35,7 +37,18 @@ export const SaveTeacherProfile = ({
     // send data to server to update in db
     dispatch({
       type: Teacher_SAVE_PROFILE,
-      payload: {phone, address, age, name, type, avatar, rating, subject},
+      payload: {
+        phone,
+        address,
+        age,
+        name,
+        type,
+        avatar,
+        rating,
+        subject,
+        certificate,
+        experience,
+      },
     });
   } catch (err) {
     dispatch({type: USER_ERROR, payload: err});

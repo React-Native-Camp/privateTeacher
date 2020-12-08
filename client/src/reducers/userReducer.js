@@ -17,8 +17,10 @@ const initialState = {
   },
   teacherProfile: {
     id: 1,
+    certificate: 'certificate',
+    experience: ' experience',
     phone: '059855582',
-    address: '....',
+    address: 'address',
     age: '...',
     name: 'Stella Russell',
     type: 'teacher',
@@ -37,8 +39,6 @@ const userReducer = (state = initialState, action) => {
       return {...state, teacherProfile: action.payload};
 
     case USER_SET_TYPE:
-
-    
       return {
         ...state,
         userProfile: {...state.userProfile, type: action.payload},

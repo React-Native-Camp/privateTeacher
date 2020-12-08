@@ -31,8 +31,8 @@ const App = () => {
     //   <Router />
     // </>
     <SafeAreaView style={styles.container}>
-      <AddCourse />
-      {/* <TeacherCourses /> */}
+      {/* <AddCourse /> */}
+      <TeacherCourses />
       {/* <PersonCard /> */}
       {/* <ChooseType /> */}
       {/* <LoginScreen /> */}

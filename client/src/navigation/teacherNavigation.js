@@ -8,6 +8,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AddCourse from '../components/screens/MainScreen/AddCourse';
 import TeacherCourses from '../components/screens/AuthScreen/TeacherCourses';
+import TeacherProfile from '../components/screens/TeacherProfile';
 const Tab = createBottomTabNavigator();
 const teacherNavigation = () => (
   <Tab.Navigator
@@ -28,7 +29,7 @@ const teacherNavigation = () => (
       }}
     /> */}
     <Tab.Screen
-      name="Teachercourses"
+      name="course"
       component={TeacherCourses}
       options={{
         tabBarLabel: 'my course',
@@ -51,9 +52,9 @@ const teacherNavigation = () => (
         ),
       }}
     />
-    {/* <Tab.Screen
-      name="TeacherProfile"
-      component={StudentProfile}
+    <Tab.Screen
+      name="TeacherProfilee"
+      component={TeacherProfile}
       options={{
         tabBarLabel: 'profile',
         tabBarIcon: ({color, size}) => (
@@ -68,7 +69,7 @@ const teacherNavigation = () => (
     />
     <Tab.Screen
       name="option"
-      component={LoginScreen}
+      component={TeacherProfile}
       options={{
         // tabBarLabel: false,
 
@@ -82,7 +83,7 @@ const teacherNavigation = () => (
         ),
         // backgroundColor=color.primary,
       }}
-    /> */}
+    />
   </Tab.Navigator>
 );
 

@@ -34,20 +34,11 @@ const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
         <View style={styles.book}>
           {currentUserType === 'teacher' ? (
             <TouchableOpacity
-              onPress={
-                () => {
-                  // alert(
-                  //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                  // );
-                  if (dispatch) {
-                    dispatch(DeleteCourse(item.teacherId, item.id));
-                  }
+              onPress={() => {
+                if (dispatch) {
+                  dispatch(DeleteCourse(item.teacherId, item.id));
                 }
-                // navigation.navigate('ConfirmScrren', {
-                //   couseId: item.id,
-                //   teacherId: item.teacherId,
-                // })
-              }>
+              }}>
               <Text h6 style={{color: 'red'}}>
                 Delete
               </Text>
@@ -55,10 +46,6 @@ const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
           ) : (
             <TouchableOpacity
               onPress={() =>
-                // alert(
-                //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                // )
-
                 navigation.navigate('ConfirmScrren', {
                   couseId: item.id,
                   teacherId: item.teacherId,

@@ -39,7 +39,7 @@ const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
                   dispatch(DeleteCourse(item.teacherId, item.id));
                 }
               }}>
-              <Text h6 style={{color: 'red'}}>
+              <Text h4 style={{color: 'red', fontSize: 24}}>
                 Delete
               </Text>
             </TouchableOpacity>
@@ -51,9 +51,7 @@ const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
                   teacherId: item.teacherId,
                 })
               }>
-              <Text h6 style={{color: 'green'}}>
-                Book
-              </Text>
+              <Text style={{color: 'green', fontSize: 24}}>Book</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -71,7 +69,6 @@ export default function TeacherCourses() {
 
   const [currentUserType, setCurrentUserType] = useState(currentType);
 
-  console.log('currentUserType : ', currentUserType);
   return (
     <ScrollView>
       <View
@@ -145,7 +142,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     height: 95,
     justifyContent: 'center',
-    width: 80,
+    width: 95,
     alignItems: 'center',
   },
   courseDetails: {

@@ -44,7 +44,6 @@ export const SaveTeacherProfile = ({
 
 export const setUserType = (newType) => (dispatch) => {
   try {
-    console.log('newType : ', newType);
     dispatch({
       type: USER_SET_TYPE,
       payload: newType,

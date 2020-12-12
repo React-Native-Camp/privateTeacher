@@ -66,11 +66,12 @@ export default function TeacherCourses() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const teacherProfile = useSelector((state) => state.user.teacherProfile);
+  const currentType = useSelector((state) => state.user.currentUserType);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
 
-  const [currentUserType, setCurrentUserType] = useState('student');
+  const [currentUserType, setCurrentUserType] = useState(currentType);
 
-  // console.log('teacherCourses : ', teacherCourses);
+  console.log('currentUserType : ', currentUserType);
   return (
     <ScrollView>
       <View

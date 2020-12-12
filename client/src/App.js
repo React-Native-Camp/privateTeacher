@@ -34,6 +34,9 @@ const App = () => {
   // const users = useSelector((state) => state);
   // console.log(' appstate', users);
   return (
+    // <>
+    //   <Router />
+    // </>
     <SafeAreaView style={styles.container}>
       {/* <AddCourse /> */}
       {/* <TeacherCourses /> */}

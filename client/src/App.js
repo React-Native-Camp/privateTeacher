@@ -5,6 +5,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AuthNavigation from './navigation/AuthNavigation';
 import AppNavigation from './navigation/AppNavigation';
 import {NavigationContainer} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+
 import LoginScreen from './components/screens/MainScreen/LoginScreen';
 import ChooseType from './components/screens/MainScreen/ChooseType';
 import TeacherCourses from './components/screens/AuthScreen/TeacherCourses';
@@ -14,7 +16,8 @@ import StudentProfile from '../src/components/screens/AuthScreen/StudentProfile'
 import StudentCourse from '../src/components/screens/AuthScreen/StudentCourse';
 import ConfirmScrren from '../src/components/screens/AuthScreen/ConfirmScreen';
 import AddCourse from './components/screens/MainScreen/AddCourse/AddCourse';
-import {useDispatch, useSelector} from 'react-redux';
+import StudentHomeScreen from './components/screens/MainScreen/StudentHomeScreen';
+
 import {fetchDemo} from './actions/demoAction';
 import navigationTheme from './navigation/navigationTheme';
 const styles = StyleSheet.create({

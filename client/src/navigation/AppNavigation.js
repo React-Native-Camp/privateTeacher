@@ -14,6 +14,7 @@ import LoginScreen from '../components/screens/MainScreen/LoginScreen';
 import ConfirmScrren from '../components/screens/AuthScreen/ConfirmScreen';
 import StudentProfile from '../components/screens/AuthScreen/StudentProfile';
 import StudentCourse from '../components/screens/AuthScreen/StudentCourse';
+import StudentHomeScreen from '../components/screens/MainScreen/StudentHomeScreen';
 // import StudentProfile from '../components/screens/AuthScreen/TeacherCourses';
 const Tab = createBottomTabNavigator();
 const AppNavigation = () => (
@@ -26,7 +27,7 @@ const AppNavigation = () => (
     }}>
     <Tab.Screen
       name="HomeScreen"
-      component={feNav}
+      component={StudentHomeScreen}
       options={{
         tabBarLabel: 'Home',
         tabBarIcon: ({color, size}) => (
@@ -65,7 +66,7 @@ const AppNavigation = () => (
     />
     <Tab.Screen
       name="option"
-      component={LoginScreen}
+      component={feNav}
       options={{
         // tabBarLabel: false,
 

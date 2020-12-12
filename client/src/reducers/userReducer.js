@@ -35,8 +35,9 @@ const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_SAVE_PROFILE:
       return {...state, userProfile: action.payload};
-    case Teacher_SAVE_PROFILE:
+    case Teacher_SAVE_PROFILE: {
       return {...state, teacherProfile: action.payload};
+    }
 
     case USER_SET_TYPE:
       return {

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {Button} from 'react-native-elements';
-import {useRoute} from '@react-navigation/native';
+import {useRoute, useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetCourseTime, BookCourse} from '../../../actions/courseAction';
 import PersonCard from '../../PersonCard';
@@ -10,6 +10,7 @@ import RadioForm from 'react-native-simple-radio-button';
 const ConfirmScreen = () => {
   const route = useRoute();
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [timeSelected, setTimeSelected] = useState();
   const [couseId, setCouseId] = useState();
   const [teacherId, setTeacherId] = useState();
@@ -75,13 +76,10 @@ const ConfirmScreen = () => {
               buttonColor="#28AE81"
               buttonStyle={{backgroundColor: '#28AE81'}}
               onPress={() => {
-                // console.log('teacherId : ', teacherId);
-                // console.log('couseId : ', couseId);
-                // console.log('userProfile.id : ', userProfile.id);
-                // console.log('timeSelected : ', timeSelected);
                 dispatch(
                   BookCourse(teacherId, couseId, userProfile.id, timeSelected),
                 );
+                navigation.navigate('mycourse');
               }}
             />
           ) : null}

@@ -29,6 +29,7 @@ const initialState = {
     rating: 4,
     subject: ['math', 'Science'],
   },
+  currentUserType: 'student',
 };
 
 const userReducer = (state = initialState, action) => {
@@ -42,6 +43,8 @@ const userReducer = (state = initialState, action) => {
     case USER_SET_TYPE:
       return {
         ...state,
+        // just for testing teacher and student View
+        currentUserType: action.payload,
         userProfile: {...state.userProfile, type: action.payload},
       };
     case USER_ERROR:

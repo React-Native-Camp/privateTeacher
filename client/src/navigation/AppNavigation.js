@@ -36,7 +36,7 @@ const AppNavigation = () => (
       }}
     />
     <Tab.Screen
-      name="course"
+      name="mycourse"
       component={StudentCourse}
       options={{
         tabBarLabel: 'my course',

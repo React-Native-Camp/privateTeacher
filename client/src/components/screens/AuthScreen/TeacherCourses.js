@@ -34,39 +34,24 @@ const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
         <View style={styles.book}>
           {currentUserType === 'teacher' ? (
             <TouchableOpacity
-              onPress={
-                () => {
-                  // alert(
-                  //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                  // );
-                  if (dispatch) {
-                    dispatch(DeleteCourse(item.teacherId, item.id));
-                  }
+              onPress={() => {
+                if (dispatch) {
+                  dispatch(DeleteCourse(item.teacherId, item.id));
                 }
-                // navigation.navigate('ConfirmScrren', {
-                //   couseId: item.id,
-                //   teacherId: item.teacherId,
-                // })
-              }>
-              <Text h6 style={{color: 'red'}}>
+              }}>
+              <Text h4 style={{color: 'red', fontSize: 24}}>
                 Delete
               </Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
               onPress={() =>
-                // alert(
-                //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                // )
-
                 navigation.navigate('ConfirmScrren', {
                   couseId: item.id,
                   teacherId: item.teacherId,
                 })
               }>
-              <Text h6 style={{color: 'green'}}>
-                Book
-              </Text>
+              <Text style={{color: 'green', fontSize: 24}}>Book</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -79,11 +64,11 @@ export default function TeacherCourses() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const teacherProfile = useSelector((state) => state.user.teacherProfile);
+  const currentType = useSelector((state) => state.user.currentUserType);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
 
-  const [currentUserType, setCurrentUserType] = useState('student');
+  const [currentUserType, setCurrentUserType] = useState(currentType);
 
-  // console.log('teacherCourses : ', teacherCourses);
   return (
     <ScrollView>
       <View
@@ -157,7 +142,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     height: 95,
     justifyContent: 'center',
-    width: 80,
+    width: 95,
     alignItems: 'center',
   },
   courseDetails: {

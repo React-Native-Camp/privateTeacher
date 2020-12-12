@@ -12,7 +12,7 @@ const initialState = {
       avatar:
         'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
       rating: 4,
-      subject: ['math', 'Science'],
+      subject: ['Design', 'Science'],
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const initialState = {
       avatar:
         'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
       rating: 5,
-      subject: ['Physics', 'Chemistry'],
+      subject: ['Math', 'Chemistry'],
     },
     {
       id: 3,
@@ -43,12 +43,24 @@ const initialState = {
       phone: '0599234567',
       address: '....',
       age: '...',
-      name: 'Hammam Adem',
+      name: 'Ahmed Salem',
       type: 'teacher',
       avatar:
         'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
-      rating: 2,
-      subject: ['English', 'Arabic'],
+      rating: 5,
+      subject: ['Design', 'English'],
+    },
+    {
+      id: 5,
+      phone: '0599234567',
+      address: '....',
+      age: '...',
+      name: 'Ahmed Salem',
+      type: 'teacher',
+      avatar:
+        'https://res.cloudinary.com/dzc3adf4j/image/upload/v1606927322/teacher_ngmzr2.png',
+      rating: 5,
+      subject: ['Arabic', 'Art'],
     },
   ],
 };

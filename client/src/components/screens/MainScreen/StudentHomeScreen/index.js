@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import {useSelector} from 'react-redux';
 
 import PersonCard from '../../../PersonCard';
@@ -8,9 +15,13 @@ import {Design, Art, Math, Social} from '../../../svgComponents';
 import Carousel from '../../../sharedComponents/Carousel';
 
 const StudentHomeScreen = () => {
+  const [isClickedCategories, setClickedCategories] = useState(false);
+  const [filteredTeachersByCategory, setFilteredTeachersByCategory] = useState(
+    [],
+  );
+
   const teachers = useSelector((state) => state.teachers.teachersList);
   const personCard = (teacher) => {
-    console.log(teacher);
     return (
       <View>
         <PersonCard
@@ -36,35 +47,65 @@ const StudentHomeScreen = () => {
     );
   };
 
+  handleCategoryClick = (categoryName) => {
+    let filteredCategories = teachers.filter((teacher) => {
+      let subjects = teacher.subject.map((sub) => sub.toLowerCase());
+      return subjects.includes(categoryName.toLowerCase());
+    });
+    setFilteredTeachersByCategory(filteredCategories);
+    setClickedCategories(true);
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.homeContainer}>
-        <View style={styles.resContainer} />
-        <View style={styles.searchContainer}>
-          <Text style={styles.searchByText}>search by</Text>
-          <DropDownPicker />
-          <SearchBar searchList={teachers} />
-          <View style={styles.categories}>
-            <Categories categoryName="Math">
-              <Math />
-            </Categories>
-            <Categories categoryName="Social" categoryIconName="math-compass">
-              <Social />
-            </Categories>
-            <Categories categoryName="Math" categoryIconName="math-compass">
-              <Math />
-            </Categories>
-            <Categories categoryName="Art" categoryIconName="math-compass">
-              <Art />
-            </Categories>
-            <Categories categoryName="Design" categoryIconName="math-compass">
-              <Design />
-            </Categories>
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.homeContainer}>
+          <View style={styles.resContainer} />
+          <View style={styles.searchContainer}>
+            <Text style={styles.searchByText}>search by</Text>
+            <DropDownPicker />
+            <SearchBar searchList={teachers} />
+            <View style={styles.categories}>
+              <TouchableOpacity onPress={() => handleCategoryClick('Math')}>
+                <Categories categoryName="Math">
+                  <Math />
+                </Categories>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => handleCategoryClick('Social')}>
+                <Categories categoryName="Social">
+                  <Social />
+                </Categories>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => handleCategoryClick('Math')}>
+                <Categories categoryName="Math">
+                  <Math />
+                </Categories>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => handleCategoryClick('Art')}>
+                <Categories categoryName="Art">
+                  <Art />
+                </Categories>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => handleCategoryClick('Design')}>
+                <Categories categoryName="Design">
+                  <Design />
+                </Categories>
+              </TouchableOpacity>
+            </View>
+
+            {filteredTeachersByCategory.length > 0 ? (
+              <Carousel cards={filteredTeachersByCategory} card={personCard} />
+            ) : isClickedCategories ? (
+              <Text>There is no teachers for this category</Text>
+            ) : (
+              <Carousel cards={teachers} card={personCard} />
+            )}
           </View>
-          <Carousel cards={teachers} card={personCard} />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -81,6 +122,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     position: 'absolute',
     alignItems: 'center',
+    alignSelf: 'center',
     top: 20,
     height: '92%',
   },

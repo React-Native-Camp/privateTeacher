@@ -21,3 +21,6 @@ export const Course_PUSH_TEACHER_COURSE_By_Id =
 
 export const Course_GET_Time_COURSE_By_Id = 'Course_GET_Time_COURSE_By_Id';
 export const Course_BOOK = 'Course_BOOK';
+
+// Dropdown picker selected value
+export const DROPDOWN_SELECTED_VALUE = 'DROPDOWN_SELECTED_VALUE';

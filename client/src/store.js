@@ -6,6 +6,7 @@ import userReducer from './reducers/userReducer';
 import authReducer from './reducers/authReducer';
 import courseReducer from './reducers/courseReducer';
 import teachersReducer from './reducers/TeachersReducer';
+import dropdownReducer from './reducers/dropdownReducer';
 const rootReducers = combineReducers({
   // demo is name to use with state for demoReducer
   // to get state from  demoReducer you must using like this
@@ -16,6 +17,7 @@ const rootReducers = combineReducers({
   user: userReducer,
   courses: courseReducer,
   teachers: teachersReducer,
+  dropdown: dropdownReducer,
 });
 
 const initialState = {};

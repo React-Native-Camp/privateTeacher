@@ -9,8 +9,8 @@ const DropDownPicker = () => {
         selectedValue={selectedValue}
         style={styles.picker}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-        <Picker.Item label="Location" value="Location" />
         <Picker.Item label="Teacher" value="Teacher" />
+        <Picker.Item label="Location" value="Location" />
       </Picker>
     </View>
   );

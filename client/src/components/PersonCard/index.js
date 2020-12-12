@@ -4,7 +4,7 @@ import ChatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UserIcon from 'react-native-vector-icons/FontAwesome';
 import EditIcon from 'react-native-vector-icons/MaterialIcons';
 import RatingStar from '../RatingStar';
-
+import {useNavigation} from '@react-navigation/native';
 const styles = StyleSheet.create({
   mainContainer: {},
   detailControl: {
@@ -65,7 +65,7 @@ const PersonCard = ({
       source={require('../../assets/default-avatar.jpg')}
     />
   );
-
+  const navigation = useNavigation();
   return (
     <TouchableOpacity>
       <View style={styles.mainContainer}>
@@ -76,12 +76,15 @@ const PersonCard = ({
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               {displayUserIcon ? (
-                <UserIcon
-                  name="user-o"
-                  size={40}
-                  color="#F0AB2A"
-                  style={{marginRight: 16}}
-                />
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('TeacheProfile')}>
+                  <UserIcon
+                    name="user-o"
+                    size={40}
+                    color="#F0AB2A"
+                    style={{marginRight: 16}}
+                  />
+                </TouchableOpacity>
               ) : null}
 
               {displayChatIcon ? (

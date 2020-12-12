@@ -11,7 +11,9 @@ import {
 import {Formik} from 'formik';
 import {useDispatch} from 'react-redux';
 import {PushTeacherCourseById} from '../../../actions/courseAction';
+import {useNavigation} from '@react-navigation/native';
 function Addcourse() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   return (
     <View style={styles.main}>
@@ -61,9 +63,13 @@ function Addcourse() {
               <View style={styles.Button}>
                 <Button title="submit" color="#28AE81" onPress={handleSubmit} />
               </View>
-              {/* <View style={styles.Button}>
-                <Button title="cancle" color="#BD0022" onPress={} />
-              </View> */}
+              <View style={styles.Button}>
+                <Button
+                  title="go to student page"
+                  color="#BD0022"
+                  onPress={() => navigation.navigate('studentNavigation')}
+                />
+              </View>
             </View>
           </>
         )}

@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import PersonCard from '../../PersonCard';
+// import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {SaveUserProfile} from '../../../actions/userAction';
 import {DeleteCourse} from '../../../actions/courseAction';
 import {Avatar} from 'react-native-elements';
-// import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {
@@ -14,8 +15,7 @@ let courseInfo = {
   secondCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
   thirdCourse: {name: 'course name', durtion: '3 hour', price: '50$'},
 };
-const buildCourse = (teacherCourses, currentUserType, dispatch) => {
-  // const navigation = useNavigation();
+const buildCourse = (teacherCourses, currentUserType, dispatch, navigation) => {
   return teacherCourses?.map((item) => {
     return (
       <View key={item.id} style={styles.container}>
@@ -34,40 +34,24 @@ const buildCourse = (teacherCourses, currentUserType, dispatch) => {
         <View style={styles.book}>
           {currentUserType === 'teacher' ? (
             <TouchableOpacity
-              onPress={
-                () => {
-                  // alert(
-                  //   `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                  // );
-                  if (dispatch) {
-                    dispatch(DeleteCourse(item.teacherId, item.id));
-                  }
+              onPress={() => {
+                if (dispatch) {
+                  dispatch(DeleteCourse(item.teacherId, item.id));
                 }
-                // navigation.navigate('ConfirmScrren', {
-                //   couseId: item.id,
-                //   teacherId: item.teacherId,
-                // })
-              }>
-              <Text h6 style={{color: 'red'}}>
+              }}>
+              <Text h4 style={{color: 'red', fontSize: 24}}>
                 Delete
               </Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
-              onPress={
-                () =>
-                  alert(
-                    `You tapped the button! \n\n Couse Id ${item.id} \n\n  teacher Id ${item.teacherId}`,
-                  )
-
-                // navigation.navigate('ConfirmScrren', {
-                //   couseId: item.id,
-                //   teacherId: item.teacherId,
-                // })
+              onPress={() =>
+                navigation.navigate('ConfirmScrren', {
+                  couseId: item.id,
+                  teacherId: item.teacherId,
+                })
               }>
-              <Text h6 style={{color: 'green'}}>
-                Book
-              </Text>
+              <Text style={{color: 'green', fontSize: 24}}>Book</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -77,13 +61,14 @@ const buildCourse = (teacherCourses, currentUserType, dispatch) => {
 };
 
 export default function TeacherCourses() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const teacherProfile = useSelector((state) => state.user.teacherProfile);
+  const currentType = useSelector((state) => state.user.currentUserType);
   const teacherCourses = useSelector((state) => state.courses.teacherCourses);
 
-  const [currentUserType, setCurrentUserType] = useState('teacher');
+  const [currentUserType, setCurrentUserType] = useState(currentType);
 
-  // console.log('teacherCourses : ', teacherCourses);
   return (
     <ScrollView>
       <View
@@ -129,7 +114,7 @@ export default function TeacherCourses() {
           />
         )}
 
-        {buildCourse(teacherCourses, currentUserType, dispatch)}
+        {buildCourse(teacherCourses, currentUserType, dispatch, navigation)}
       </View>
     </ScrollView>
   );
@@ -157,7 +142,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     height: 95,
     justifyContent: 'center',
-    width: 80,
+    width: 95,
     alignItems: 'center',
   },
   courseDetails: {

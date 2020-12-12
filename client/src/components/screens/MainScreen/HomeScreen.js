@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, View, StyleSheet, ScrollView} from 'react-native';
 import {Button, Text, Card, Rating, Badge, Icon} from 'react-native-elements';
+import {useNavigation} from '@react-navigation/native';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 let info = {
@@ -9,6 +10,7 @@ let info = {
 };
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
   return (
     <ScrollView>
       <View style={styles.scroll}>
@@ -26,6 +28,7 @@ export default function HomeScreen() {
               width: 110,
               height: 50,
             }}
+            onPress={() => navigation.navigate('LoginScreen')}
           />
         </View>
         <Image
@@ -134,7 +137,7 @@ const styles = StyleSheet.create({
   scroll: {
     height: 800,
     width: 'auto',
-    padding: 5,
+    padding: 15,
   },
   badge: {
     margin: 2,

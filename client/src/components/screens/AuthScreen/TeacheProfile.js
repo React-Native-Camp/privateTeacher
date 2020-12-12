@@ -17,7 +17,7 @@ export default function TeacherCourses() {
 
       <View style={styles.card}>
         <View style={styles.yellowView}>
-          <Icon type="MaterialCommunityIcons" name="hops" color="white" />
+          <Icon type="Entypo" name="location-pin" color="white" />
         </View>
         <View style={styles.whiteSpace}>
           <Text>{teacherInfo.edu}</Text>
@@ -25,7 +25,7 @@ export default function TeacherCourses() {
       </View>
       <View style={styles.card}>
         <View style={styles.yellowView}>
-          <Icon type="FontAwesome" name="car" color="white" />
+          <Icon type="FontAwesome" name="phone" color="white" />
         </View>
         <View style={styles.whiteSpace}>
           <Text>{teacherInfo.experience}</Text>

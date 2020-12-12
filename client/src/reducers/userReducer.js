@@ -17,8 +17,10 @@ const initialState = {
   },
   teacherProfile: {
     id: 1,
+    certificate: 'certificate',
+    experience: ' experience',
     phone: '059855582',
-    address: '....',
+    address: 'address',
     age: '...',
     name: 'Stella Russell',
     type: 'teacher',
@@ -27,20 +29,22 @@ const initialState = {
     rating: 4,
     subject: ['math', 'Science'],
   },
+  currentUserType: 'student',
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_SAVE_PROFILE:
       return {...state, userProfile: action.payload};
-    case Teacher_SAVE_PROFILE:
+    case Teacher_SAVE_PROFILE: {
       return {...state, teacherProfile: action.payload};
+    }
 
     case USER_SET_TYPE:
-
-    
       return {
         ...state,
+        // just for testing teacher and student View
+        currentUserType: action.payload,
         userProfile: {...state.userProfile, type: action.payload},
       };
     case USER_ERROR:

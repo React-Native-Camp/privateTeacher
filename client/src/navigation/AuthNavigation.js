@@ -39,6 +39,11 @@ const StaNav = () => (
       component={teacherNavigation}
       options={{headerShown: false}}
     />
+    <Stack.Screen
+      name="ConfirmScrren"
+      component={ConfirmScrren}
+      options={{headerShown: false}}
+    />
   </Stack.Navigator>
 );
 

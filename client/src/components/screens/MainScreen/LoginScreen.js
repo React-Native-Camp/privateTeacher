@@ -53,7 +53,6 @@ const LoginScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const auth = useSelector((state) => state);
-  console.log('authLogin', auth);
   return (
     <View style={styles.container}>
       <Image style={styles.Logo} source={require('../../../assets/logo.png')} />

@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import PersonCard from '../../PersonCard';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {SaveUserProfile} from '../../../actions/userAction';
 import {DeleteCourse} from '../../../actions/courseAction';
 import {Avatar} from 'react-native-elements';
-// import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 let info = {img: 're', name: 'steall', rate: 3, subj: 'math'};
 let courseInfo = {

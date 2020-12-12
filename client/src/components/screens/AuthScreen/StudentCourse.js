@@ -14,9 +14,9 @@ export default function StudentCourse() {
   const coursesTime = useSelector((state) => state.courses.coursesTime);
   const teacherProfile = useSelector((state) => state.user.teacherProfile);
 
-  console.log('studentBookds : ', studentBookds);
-  console.log('courses : ', courses);
-  console.log('teacherProfile : ', teacherProfile);
+  // console.log('studentBookds : ', studentBookds);
+  // console.log('courses : ', courses);
+  // console.log('teacherProfile : ', teacherProfile);
   console.log('coursesTime : ', coursesTime);
 
   return (
@@ -24,12 +24,15 @@ export default function StudentCourse() {
       <PersonCard name={StudentData?.name} imageProfile={StudentData?.avatar} />
       <View style={styles.corses}>
         {studentBookds?.map((item, index) => {
+          console.log('studentBookds item', item);
           const course = courses?.filter((x) => x.id === item.courseId);
+          console.log('course : ', course);
+
           const time = coursesTime
-            ? coursesTime[0]?.filter((x) => x.id === item.timeId)
+            ? coursesTime[0].filter((x) => x.id === item.timeId)
             : null;
 
-          console.log('Select time : ', time);
+          // console.log('Select time : ', time);
           return (
             <View key={index} style={styles.container}>
               <View style={styles.cardView}>

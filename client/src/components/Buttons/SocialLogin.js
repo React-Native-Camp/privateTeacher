@@ -48,7 +48,7 @@ const SocialLogin = ({onPress, title, iconName, borderColor, iconColor}) => {
       fontFamily: 'Roboto',
       fontStyle: 'normal',
       fontWeight: 'normal',
-      fontSize: 20,
+      fontSize: 24,
       lineHeight: 23,
       display: 'flex',
       alignItems: 'center',

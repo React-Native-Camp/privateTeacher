@@ -128,7 +128,7 @@ const initialState = {
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
     case Course_GET_Time_COURSE_By_Id:
-      return {...state, coursesTime: [...state.coursesTime, action.payload]};
+      return {...state, selectedCoursesTime: action.payload};
 
     case Course_GET_TEACHER_COURSE_By_Id:
       return {
@@ -137,8 +137,6 @@ const courseReducer = (state = initialState, action) => {
       };
 
     case Course_PUSH_TEACHER_COURSE_By_Id:
-      console.log('course payload : ', action.payload);
-      console.log('...state : ', {...state});
       return {
         ...state,
         teacherCourses: [...state.teacherCourses, action.payload],

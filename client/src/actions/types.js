@@ -24,3 +24,5 @@ export const Course_BOOK = 'Course_BOOK';
 
 // Dropdown picker selected value
 export const DROPDOWN_SELECTED_VALUE = 'DROPDOWN_SELECTED_VALUE';
+
+export const Course_Delete = 'Course_Delete';

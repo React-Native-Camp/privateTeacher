@@ -1,6 +1,7 @@
 import {
   Course_GET_TEACHER_COURSE_By_Id,
   Course_GET_Time_COURSE_By_Id,
+  Course_Delete,
   FETCH_ERROR,
   Course_PUSH_TEACHER_COURSE_By_Id,
   Course_BOOK,
@@ -135,7 +136,7 @@ export const GetCourseTime = (teacherId, courseId) => (dispatch) => {
       (x) => x[0].courseId === courseId && x[0].teacherId === teacherId,
     );
 
-    dispatch({type: Course_GET_Time_COURSE_By_Id, payload: courseTimes[0]});
+    dispatch({type: Course_GET_Time_COURSE_By_Id, payload: courseTime[0]});
   } catch (err) {
     dispatch({type: FETCH_ERROR, payload: err});
   }
@@ -151,6 +152,15 @@ export const BookCourse = (teacherId, courseId, studentId, timeId) => (
       type: Course_BOOK,
       payload: {teacherId, courseId, studentId, timeId},
     });
+  } catch (err) {
+    dispatch({type: FETCH_ERROR, payload: err});
+  }
+};
+
+export const DeleteCourse = (teacherId, courseId) => (dispatch) => {
+  try {
+    // get teacher coures by id
+    dispatch({type: Course_Delete, payload: {teacherId, courseId}});
   } catch (err) {
     dispatch({type: FETCH_ERROR, payload: err});
   }

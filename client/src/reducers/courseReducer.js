@@ -2,6 +2,7 @@ import {
   Course_GET_TEACHER_COURSE_By_Id,
   Course_GET_Time_COURSE_By_Id,
   Course_BOOK,
+  Course_Delete,
   FETCH_ERROR,
   Course_PUSH_TEACHER_COURSE_By_Id,
 } from '../actions/types';
@@ -147,6 +148,27 @@ const courseReducer = (state = initialState, action) => {
         ...state,
         studentBookds: [...state.studentBookds, action.payload],
       };
+
+    case Course_Delete:
+      console.log('Deletrew : ', action);
+
+      try {
+        const temp = [...state.teacherCourses];
+        const index = temp?.findIndex(
+          (x) =>
+            x.id == action.payload.courseId &&
+            x.teacherId == action.payload.teacherId,
+        );
+        temp.splice(index, 1);
+
+        return {
+          ...state,
+          teacherCourses: temp,
+        };
+      } catch (err) {
+        console.log('err temp : ', err);
+        return {...state, error: err};
+      }
 
     case FETCH_ERROR:
       return {...state, error: action.payload};
